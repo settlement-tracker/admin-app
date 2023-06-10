@@ -8,7 +8,7 @@
 <button class="btn btn-primary">Test bootsrap vraiable overides</button>
 
 <div class="navbar-vertical pheonix-theme-test">
-	<button class="btn btn-phoenix-secondary">test phoenix specific classes</button>
+	<button class="btn btn-info">test phoenix specific classes</button>
 </div>
 
 <div class="dark" />
