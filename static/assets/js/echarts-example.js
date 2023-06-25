@@ -26,6 +26,18 @@
     // Merge user options with lodash
     chart.setOption(merge(getDefaultOptions(), userOptions));
 
+    const navbarVerticalToggle = document.querySelector(
+      '.navbar-vertical-toggle'
+    );
+    if (navbarVerticalToggle) {
+      navbarVerticalToggle.addEventListener('navbar.vertical.toggle', () => {
+        chart.resize();
+        if (responsiveOptions) {
+          handleResize(responsiveOptions);
+        }
+      });
+    }
+
     resize(() => {
       chart.resize();
       if (responsiveOptions) {
@@ -47,35 +59,21 @@
   };
   // -------------------end config.js--------------------
 
-  const resizeEcharts = () => {
-    const $echarts = document.querySelectorAll('[data-echart-responsive]');
-
-    if ($echarts.length > 0) {
-      $echarts.forEach(item => {
-        const echartInstance = echarts.getInstanceByDom(item);
-        echartInstance?.resize();
-      });
-    }
-  };
-
-  const navbarVerticalToggle = document.querySelector('.navbar-vertical-toggle');
-  navbarVerticalToggle &&
-    navbarVerticalToggle.addEventListener('navbar.vertical.toggle', e => {
-      return resizeEcharts();
-    });
-
   const echartTabs = document.querySelectorAll('[data-tab-has-echarts]');
-  echartTabs &&
+  if (echartTabs) {
     echartTabs.forEach(tab => {
       tab.addEventListener('shown.bs.tab', e => {
         const el = e.target;
         const { hash } = el;
-        const id = hash ? hash : el.dataset.bsTarget;
+        const id = hash || el.dataset.bsTarget;
         const content = document.getElementById(id.substring(1));
         const chart = content?.querySelector('[data-echart-tab]');
-        chart && window.echarts.init(chart).resize();
+        if (chart) {
+          window.echarts.init(chart).resize();
+        }
       });
     });
+  }
 
   const tooltipFormatter = (params, dateFormatter = 'MMM DD') => {
     let tooltipItem = ``;
@@ -100,6 +98,17 @@
             </p>
             ${tooltipItem}
           </div>`;
+  };
+
+  const handleTooltipPosition = ([pos, , dom, , size]) => {
+    // only for mobile device
+    if (window.innerWidth <= 540) {
+      const tooltipHeight = dom.offsetHeight;
+      const obj = { top: pos[1] - tooltipHeight - 20 };
+      obj[pos[0] < size.viewSize[0] / 2 ? 'left' : 'right'] = 5;
+      return obj;
+    }
+    return null; // else default behaviour
   };
 
   const basicLineChartInit = () => {
@@ -372,6 +381,7 @@
           axisPointer: {
             type: 'none'
           },
+          position: (...params) => handleTooltipPosition(params),
           formatter: params => tooltipFormatter(params)
         },
         xAxis: {
@@ -527,6 +537,7 @@
           axisPointer: {
             type: 'none'
           },
+          position: (...params) => handleTooltipPosition(params),
           formatter: params => tooltipFormatter(params)
         },
         xAxis: {
@@ -2137,6 +2148,7 @@
           textStyle: { color: getColor('dark') },
           borderWidth: 1,
           transitionDuration: 0,
+          position: (...params) => handleTooltipPosition(params),
           formatter: tooltipFormatter
         },
         toolbox: {
@@ -2571,6 +2583,7 @@
           textStyle: { color: getColor('dark') },
           borderWidth: 1,
           transitionDuration: 0,
+          position: (...params) => handleTooltipPosition(params),
           formatter: params => tooltipFormatter(params)
         },
         toolbox: {
@@ -3242,7 +3255,8 @@
           transitionDuration: 0,
           axisPointer: {
             type: 'none'
-          }
+          },
+          position: (...params) => handleTooltipPosition(params)
         },
         toolbox: {
           top: 0,
@@ -3464,7 +3478,8 @@
           borderColor: getColor('gray-300'),
           textStyle: { color: getColor('dark') },
           borderWidth: 1,
-          transitionDuration: 0
+          transitionDuration: 0,
+          position: (...params) => handleTooltipPosition(params)
         },
         axisPointer: {
           link: [
@@ -3955,6 +3970,7 @@
           textStyle: { color: getColor('dark') },
           borderWidth: 1,
           transitionDuration: 0,
+          position: (...params) => handleTooltipPosition(params),
           formatter: params => {
             return `<strong>${params.data.name} :</strong> ${params.data.value}`;
           }
@@ -5193,6 +5209,15 @@
           transitionDuration: 0,
           axisPointer: {
             type: 'none'
+          },
+          position(pos, ...size) {
+            if (window.innerWidth <= 540) {
+              const tooltipHeight = size[1].offsetHeight;
+              const obj = { top: pos[1] - tooltipHeight - 20 };
+              obj[pos[0] < size[3].viewSize[0] / 2 ? 'left' : 'right'] = 5;
+              return obj;
+            }
+            return null;
           }
         },
 
@@ -5342,6 +5367,15 @@
           transitionDuration: 0,
           axisPointer: {
             type: 'none'
+          },
+          position(pos, ...size) {
+            if (window.innerWidth <= 540) {
+              const tooltipHeight = size[1].offsetHeight;
+              const obj = { top: pos[1] - tooltipHeight - 20 };
+              obj[pos[0] < size[3].viewSize[0] / 2 ? 'left' : 'right'] = 5;
+              return obj;
+            }
+            return null;
           }
         },
 
@@ -6049,6 +6083,15 @@
           transitionDuration: 0,
           axisPointer: {
             type: 'none'
+          },
+          position(pos, ...size) {
+            if (window.innerWidth <= 540) {
+              const tooltipHeight = size[1].offsetHeight;
+              const obj = { top: pos[1] - tooltipHeight - 20 };
+              obj[pos[0] < size[3].viewSize[0] / 2 ? 'left' : 'right'] = 5;
+              return obj;
+            }
+            return null;
           }
         },
 
@@ -6368,6 +6411,15 @@
           transitionDuration: 0,
           axisPointer: {
             type: 'none'
+          },
+          position(pos, ...size) {
+            if (window.innerWidth <= 540) {
+              const tooltipHeight = size[1].offsetHeight;
+              const obj = { top: pos[1] - tooltipHeight - 20 };
+              obj[pos[0] < size[3].viewSize[0] / 2 ? 'left' : 'right'] = 5;
+              return obj;
+            }
+            return null;
           }
         },
 

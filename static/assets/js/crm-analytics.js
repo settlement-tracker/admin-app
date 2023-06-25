@@ -26,6 +26,18 @@
     // Merge user options with lodash
     chart.setOption(merge(getDefaultOptions(), userOptions));
 
+    const navbarVerticalToggle = document.querySelector(
+      '.navbar-vertical-toggle'
+    );
+    if (navbarVerticalToggle) {
+      navbarVerticalToggle.addEventListener('navbar.vertical.toggle', () => {
+        chart.resize();
+        if (responsiveOptions) {
+          handleResize(responsiveOptions);
+        }
+      });
+    }
+
     resize(() => {
       chart.resize();
       if (responsiveOptions) {
@@ -47,35 +59,21 @@
   };
   // -------------------end config.js--------------------
 
-  const resizeEcharts = () => {
-    const $echarts = document.querySelectorAll('[data-echart-responsive]');
-
-    if ($echarts.length > 0) {
-      $echarts.forEach(item => {
-        const echartInstance = echarts.getInstanceByDom(item);
-        echartInstance?.resize();
-      });
-    }
-  };
-
-  const navbarVerticalToggle = document.querySelector('.navbar-vertical-toggle');
-  navbarVerticalToggle &&
-    navbarVerticalToggle.addEventListener('navbar.vertical.toggle', e => {
-      return resizeEcharts();
-    });
-
   const echartTabs = document.querySelectorAll('[data-tab-has-echarts]');
-  echartTabs &&
+  if (echartTabs) {
     echartTabs.forEach(tab => {
       tab.addEventListener('shown.bs.tab', e => {
         const el = e.target;
         const { hash } = el;
-        const id = hash ? hash : el.dataset.bsTarget;
+        const id = hash || el.dataset.bsTarget;
         const content = document.getElementById(id.substring(1));
         const chart = content?.querySelector('[data-echart-tab]');
-        chart && window.echarts.init(chart).resize();
+        if (chart) {
+          window.echarts.init(chart).resize();
+        }
       });
     });
+  }
 
   /* -------------------------------------------------------------------------- */
   /*                             Echarts Total Sales                            */

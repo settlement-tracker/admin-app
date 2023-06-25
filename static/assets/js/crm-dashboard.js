@@ -26,6 +26,18 @@
     // Merge user options with lodash
     chart.setOption(merge(getDefaultOptions(), userOptions));
 
+    const navbarVerticalToggle = document.querySelector(
+      '.navbar-vertical-toggle'
+    );
+    if (navbarVerticalToggle) {
+      navbarVerticalToggle.addEventListener('navbar.vertical.toggle', () => {
+        chart.resize();
+        if (responsiveOptions) {
+          handleResize(responsiveOptions);
+        }
+      });
+    }
+
     resize(() => {
       chart.resize();
       if (responsiveOptions) {
@@ -47,35 +59,21 @@
   };
   // -------------------end config.js--------------------
 
-  const resizeEcharts = () => {
-    const $echarts = document.querySelectorAll('[data-echart-responsive]');
-
-    if ($echarts.length > 0) {
-      $echarts.forEach(item => {
-        const echartInstance = echarts.getInstanceByDom(item);
-        echartInstance?.resize();
-      });
-    }
-  };
-
-  const navbarVerticalToggle = document.querySelector('.navbar-vertical-toggle');
-  navbarVerticalToggle &&
-    navbarVerticalToggle.addEventListener('navbar.vertical.toggle', e => {
-      return resizeEcharts();
-    });
-
   const echartTabs = document.querySelectorAll('[data-tab-has-echarts]');
-  echartTabs &&
+  if (echartTabs) {
     echartTabs.forEach(tab => {
       tab.addEventListener('shown.bs.tab', e => {
         const el = e.target;
         const { hash } = el;
-        const id = hash ? hash : el.dataset.bsTarget;
+        const id = hash || el.dataset.bsTarget;
         const content = document.getElementById(id.substring(1));
         const chart = content?.querySelector('[data-echart-tab]');
-        chart && window.echarts.init(chart).resize();
+        if (chart) {
+          window.echarts.init(chart).resize();
+        }
       });
     });
+  }
 
   const tooltipFormatter = (params, dateFormatter = 'MMM DD') => {
     let tooltipItem = ``;
@@ -102,6 +100,17 @@
           </div>`;
   };
 
+  const handleTooltipPosition = ([pos, , dom, , size]) => {
+    // only for mobile device
+    if (window.innerWidth <= 540) {
+      const tooltipHeight = dom.offsetHeight;
+      const obj = { top: pos[1] - tooltipHeight - 20 };
+      obj[pos[0] < size.viewSize[0] / 2 ? 'left' : 'right'] = 5;
+      return obj;
+    }
+    return null; // else default behaviour
+  };
+
   // dayjs.extend(advancedFormat);
 
   /* -------------------------------------------------------------------------- */
@@ -125,7 +134,7 @@
         { value: 40, name: 'Direct Traffic' },
         { value: 220, name: 'Social Media' },
         { value: 120, name: 'Referrals' },
-        { value: 35, name: 'Others Campaigns' },
+        { value: 35, name: 'Others Campaigns' }
       ];
       const totalSource = data.reduce((acc, val) => val.value + acc, 0);
       if (chartLabel) {
@@ -138,10 +147,12 @@
           getColor('info'),
           getColor('info-300'),
           getColor('danger-200'),
-          getColor('warning-300'),
+          getColor('warning-300')
         ],
         tooltip: {
           trigger: 'item',
+          borderWidth: 0,
+          position: (...params) => handleTooltipPosition(params)
         },
         responsive: true,
         maintainAspectRatio: false,
@@ -155,30 +166,30 @@
             avoidLabelOverlap: false,
             itemStyle: {
               borderColor: getColor('gray-soft'),
-              borderWidth: 3,
+              borderWidth: 3
             },
 
             label: {
-              show: false,
+              show: false
             },
             emphasis: {
               label: {
-                show: false,
-              },
+                show: false
+              }
             },
             labelLine: {
-              show: false,
+              show: false
             },
-            data,
-          },
+            data
+          }
         ],
         grid: {
           bottom: 0,
           top: 0,
           left: 0,
           right: 0,
-          containLabel: false,
-        },
+          containLabel: false
+        }
       });
 
       echartSetOption(chart, userOptions, getDefaultOptions);
@@ -228,7 +239,8 @@
             formatter: value => window.dayjs(value).format('D MMM, YY'),
             fontFamily: 'Nunito Sans',
             fontWeight: 600,
-            fontSize: 10.24
+            fontSize: 10.24,
+            padding: [0, 0, 0, 20]
           },
           splitLine: {
             show: true,
@@ -904,6 +916,9 @@
           type: 'bar',
           barWidth: '20px',
           showBackground: true,
+          backgroundStyle: {
+            borderRadius: [4, 0, 0, 4]
+          },
           data: [
             {
               value: 1060,
@@ -1044,7 +1059,7 @@
                   color: getColor('danger-300')
                 },
                 label: {
-                  formatter: val => `{a|${val.value}}`,
+                  formatter: () => `{a|100%}`,
                   rich: {
                     a: {
                       color: getColor('white')
@@ -1055,7 +1070,7 @@
               label: {
                 show: true,
                 position: 'inside',
-                formatter: val => `{a|${val.value}}`,
+                formatter: () => `{a|100%}`,
                 rich: {
                   a: {
                     color: getColor('danger-600'),
@@ -1116,8 +1131,10 @@
       let tooltipItem = ``;
       params.forEach(el => {
         tooltipItem += `<div class='ms-1'>
-          <h6 class="text-700"><span class="fas fa-circle me-1 fs--2" style="color:${el.color}"></span>
-            ${el.seriesName} : $${el.value}
+          <h6 class="text-700"><span class="fas fa-circle me-1 fs--2" style="color:${
+            el.color
+          }"></span>
+            ${el.seriesName} : $${el.value.toLocaleString()}
           </h6>
         </div>`;
       });

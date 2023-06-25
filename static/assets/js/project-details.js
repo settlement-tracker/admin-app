@@ -26,6 +26,18 @@
     // Merge user options with lodash
     chart.setOption(merge(getDefaultOptions(), userOptions));
 
+    const navbarVerticalToggle = document.querySelector(
+      '.navbar-vertical-toggle'
+    );
+    if (navbarVerticalToggle) {
+      navbarVerticalToggle.addEventListener('navbar.vertical.toggle', () => {
+        chart.resize();
+        if (responsiveOptions) {
+          handleResize(responsiveOptions);
+        }
+      });
+    }
+
     resize(() => {
       chart.resize();
       if (responsiveOptions) {
@@ -47,35 +59,21 @@
   };
   // -------------------end config.js--------------------
 
-  const resizeEcharts = () => {
-    const $echarts = document.querySelectorAll('[data-echart-responsive]');
-
-    if ($echarts.length > 0) {
-      $echarts.forEach(item => {
-        const echartInstance = echarts.getInstanceByDom(item);
-        echartInstance?.resize();
-      });
-    }
-  };
-
-  const navbarVerticalToggle = document.querySelector('.navbar-vertical-toggle');
-  navbarVerticalToggle &&
-    navbarVerticalToggle.addEventListener('navbar.vertical.toggle', e => {
-      return resizeEcharts();
-    });
-
   const echartTabs = document.querySelectorAll('[data-tab-has-echarts]');
-  echartTabs &&
+  if (echartTabs) {
     echartTabs.forEach(tab => {
       tab.addEventListener('shown.bs.tab', e => {
         const el = e.target;
         const { hash } = el;
-        const id = hash ? hash : el.dataset.bsTarget;
+        const id = hash || el.dataset.bsTarget;
         const content = document.getElementById(id.substring(1));
         const chart = content?.querySelector('[data-echart-tab]');
-        chart && window.echarts.init(chart).resize();
+        if (chart) {
+          window.echarts.init(chart).resize();
+        }
       });
     });
+  }
 
   /* -------------------------------------------------------------------------- */
   /*                             Echarts Total Sales                            */
@@ -259,7 +257,7 @@
 
   // import * as echarts from 'echarts';
 
-  const { echarts: echarts$1 } = window;
+  const { echarts } = window;
 
   /* -------------------------------------------------------------------------- */
   /*                                Market Share                                */
@@ -272,7 +270,7 @@
 
     if ($echartTopCoupons) {
       const userOptions = getData($echartTopCoupons, 'options');
-      const chart = echarts$1.init($echartTopCoupons);
+      const chart = echarts.init($echartTopCoupons);
 
       const getDefaultOptions = () => ({
         color: [
@@ -289,6 +287,19 @@
           textStyle: { color: getColor('dark') },
           borderWidth: 1,
           transitionDuration: 0,
+          position(pos, params, el, elRect, size) {
+            const obj = { top: pos[1] - 35 }; // set tooltip position over 35px from pointer
+            if (window.innerWidth > 540) {
+              if (pos[0] <= size.viewSize[0] / 2) {
+                obj.left = pos[0] + 20; // 'move in right';
+              } else {
+                obj.left = pos[0] - size.contentSize[0] - 20;
+              }
+            } else {
+              obj[pos[0] < size.viewSize[0] / 2 ? 'left' : 'right'] = 0;
+            }
+            return obj;
+          },
           formatter: params => {
             return `<strong>${params.data.name}:</strong> ${params.percent}%`;
           }
@@ -308,7 +319,7 @@
             },
             itemStyle: {
               borderWidth: 2,
-              borderColor: getColor('white')
+              borderColor: getColor('gray-soft')
             },
             label: {
               show: true,

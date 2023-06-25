@@ -287,7 +287,7 @@
       CALENDAR_DAY: '.calendar-day',
       CALENDAR_DATE: '.calendar-date',
       DATA_CALENDAR_VIEW: '[data-fc-view]',
-      DATA_EVENT: '[data-event]',
+      DATA_EVENT: 'data-event',
       DATA_VIEW_TITLE: '[data-view-title]',
       EVENT_DETAILS_MODAL: '#eventDetailsModal',
       EVENT_DETAILS_MODAL_CONTENT: '#eventDetailsModal .modal-content',
@@ -415,9 +415,15 @@
 
       updateTitle(calendar.currentData);
 
-      document.querySelectorAll(Selectors.DATA_EVENT).forEach(button => {
-        button.addEventListener(Events.CLICK, e => {
-          const el = e.currentTarget;
+      document.addEventListener('click', e => {
+        // handle prev and next button click
+        if (
+          e.target.hasAttribute(Selectors.DATA_EVENT) ||
+          e.target.parentNode.hasAttribute(Selectors.DATA_EVENT)
+        ) {
+          const el = e.target.hasAttribute(Selectors.DATA_EVENT)
+            ? e.target
+            : e.target.parentNode;
           const type = getData(el, DataKeys.EVENT);
           switch (type) {
             case 'prev':
@@ -437,16 +443,23 @@
               updateTitle(calendar.currentData);
               break;
           }
-        });
-      });
+        }
 
-      document.querySelectorAll(Selectors.DATA_CALENDAR_VIEW).forEach(link => {
-        link.addEventListener(Events.CLICK, e => {
-          e.preventDefault();
-          const el = e.currentTarget;
+        // handle fc-view
+        if (e.target.hasAttribute('data-fc-view')) {
+          const el = e.target;
           calendar.changeView(getData(el, DataKeys.FC_VIEW));
           updateTitle(calendar.currentData);
-        });
+          document
+            .querySelectorAll(Selectors.DATA_CALENDAR_VIEW)
+            .forEach(item => {
+              if (item === e.target) {
+                item.classList.add('active-view');
+              } else {
+                item.classList.remove('active-view');
+              }
+            });
+        }
       });
 
       if (addEventForm) {

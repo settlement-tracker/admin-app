@@ -192,6 +192,7 @@
   --phoenix-code-color: #d63384;
   --phoenix-highlight-bg: #fff3cd;
   --phoenix-input-bg: #fff;
+  --phoenix-input-color: var(--phoenix-gray-900);
   --phoenix-input-border-color: #cbd0dd;
   --phoenix-input-group-addon-bg: #eff2f6;
   /* -------------------------------------------------------------------------- */
@@ -248,7 +249,6 @@
   --phoenix-link-hover-color: #004dff;
   /* ------------------------------- link-color ------------------------------- */
   --phoenix-link-color: #3874ff;
-  --phoenix-colored-link-100-hover-color: map-get(grays, 200);
   /* --------------------------------- choices -------------------------------- */
   --phoenix-choices-inner-min-height: auto;
   --phoenix-choices-item-has-no-choices-bg: #fff;
@@ -283,7 +283,7 @@
   --phoenix-avatar-status-border-color: #fff;
   --phoenix-avatar-name-color: #004dff;
   /* ---------------------------------- link ---------------------------------- */
-  --phoenix-colored-link-100-hover-color: map-get(grays, "200");
+  --phoenix-colored-link-100-hover-color: #e3e6ed;
   /* ---------------------------------- logo ---------------------------------- */
   --phoenix-logo-text: #6e7891;
   /* -------------------------- theme-control-toggle -------------------------- */
@@ -313,7 +313,7 @@
 :root .navbar-slim,
 :root.light .navbar-slim,
 :root .light .navbar-slim {
-  --phoenix-navbar-top-menu-margin: .8rem;
+  --phoenix-navbar-top-menu-margin: 0.8rem;
 }
 :root.dual-nav,
 :root.light.dual-nav,
@@ -596,7 +596,6 @@
   /* ------------------------------ phoenix badge ----------------------------- */
   /* --------------------------------- buttons -------------------------------- */
   /* ----------------------------- phoenix-buttons ---------------------------- */
-  --phoenix-btn-active-bg: $primary;
   /* ----------------------------- outline buttons ---------------------------- */
   /* --------------------------------- list js -------------------------------- */
   --phoenix-list-sort-icon: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNyIgaGVpZ2h0PSI5IiB2aWV3Qm94PSIwIDAgNyA5IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMS4xMjkzIDQuOTkwMjNDMC42OTEwMTYgNC45OTAyMyAwLjQ3MTg3NSA1LjUwODIgMC43OTA2MjUgNS44MDcwM0wzLjE2MTMzIDguMTc3NzNDMy4zNDA2MiA4LjM3Njk1IDMuNjM5NDUgOC4zNzY5NSAzLjgzODY3IDguMTc3NzNMNi4yMDkzNyA1LjgwNzAzQzYuNTA4MiA1LjUwODIgNi4yODkwNiA0Ljk5MDIzIDUuODcwNyA0Ljk5MDIzSDEuMTI5M1pNNi4yMDkzNyAyLjg5ODQ0TDMuODM4NjcgMC41Mjc3MzVDMy42Mzk0NSAwLjM0ODQzOCAzLjM0MDYyIDAuMzQ4NDM4IDMuMTYxMzMgMC41Mjc3MzVMMC43OTA2MjUgMi44OTg0NEMwLjQ3MTg3NSAzLjIxNzE5IDAuNjkxMDE2IDMuNzE1MjMgMS4xMjkzIDMuNzE1MjNINS44NzA3QzYuMjg5MDYgMy43MTUyMyA2LjUwODIgMy4yMTcxOSA2LjIwOTM3IDIuODk4NDRaIiBmaWxsPSIjM0U0NjVCIi8+Cjwvc3ZnPgo=");
@@ -672,10 +671,28 @@
   --phoenix-kanban-bg: #0f111a;
   --phoenix-kanban-column-bg: #141824;
   --phoenix-ghost-bg: #0f111a;
-  --phoenix-drag-bg: #1C222C;
-  --phoenix-kanban-column-hover-bg: #1C222C;
+  --phoenix-drag-bg: #1c222c;
+  --phoenix-kanban-column-hover-bg: #1c222c;
   --phoenix-leaflet-bar-bg: #373e53;
   --phoenix-leaflet-popup-content-wrapper-bg: #141824;
+}
+.dark .text-success-100, .dark .picmo__popupContainer.picmo__light .text-success-100 {
+  color: #134207 !important;
+}
+.dark .text-success-300, .dark .picmo__popupContainer.picmo__light .text-success-300 {
+  color: #42962D !important;
+}
+.dark .text-warning-100, .dark .picmo__popupContainer.picmo__light .text-warning-100 {
+  color: #52310B !important;
+}
+.dark .text-warning-300, .dark .picmo__popupContainer.picmo__light .text-warning-300 {
+  color: #8D6333 !important;
+}
+.dark .text-danger-100, .dark .picmo__popupContainer.picmo__light .text-danger-100 {
+  color: #612017 !important;
+}
+.dark .text-danger-300, .dark .picmo__popupContainer.picmo__light .text-danger-300 {
+  color: #612017 !important;
 }
 .dark .card, .dark .picmo__popupContainer.picmo__light .card {
   --phoenix-card-bg: var(--phoenix-white);
@@ -753,7 +770,9 @@
 }
 .dark .btn.active, .dark .google-map-control-btn .active.zoomIn, .google-map-control-btn .dark .active.zoomIn,
 .dark .google-map-control-btn .active.zoomOut,
-.google-map-control-btn .dark .active.zoomOut, .dark .tox .tox-dialog__footer .active.tox-button--secondary, .tox .tox-dialog__footer .dark .active.tox-button--secondary, .dark .tox .active.tox-button-secondary, .tox .dark .active.tox-button-secondary, .dark .tox .active.tox-button, .tox .dark .active.tox-button, .dark [data-list] .active.page, [data-list] .dark .active.page, .dark .table-list .active.page, .table-list .dark .active.page {
+.google-map-control-btn .dark .active.zoomOut, .dark .tox .tox-dialog__footer .active.tox-button--secondary, .tox .tox-dialog__footer .dark .active.tox-button--secondary, .dark .tox .active.tox-button-secondary, .tox .dark .active.tox-button-secondary, .dark .tox .active.tox-button, .tox .dark .active.tox-button, .dark [data-list] .active.page, [data-list] .dark .active.page,
+.dark .table-list .active.page,
+.table-list .dark .active.page {
   --phoenix-btn-active-bg: #373e53;
   --phoenix-btn-active-color: red;
 }
@@ -817,7 +836,10 @@
 .dark .settings-panel .btn, .dark .settings-panel .google-map-control-btn .zoomIn, .google-map-control-btn .dark .settings-panel .zoomIn, .dark .google-map-control-btn .picmo__popupContainer.picmo__light .settings-panel .zoomIn,
 .dark .settings-panel .google-map-control-btn .zoomOut,
 .google-map-control-btn .dark .settings-panel .zoomOut,
-.dark .google-map-control-btn .picmo__popupContainer.picmo__light .settings-panel .zoomOut, .dark .settings-panel .tox .tox-dialog__footer .tox-button--secondary, .tox .tox-dialog__footer .dark .settings-panel .tox-button--secondary, .dark .tox .tox-dialog__footer .picmo__popupContainer.picmo__light .settings-panel .tox-button--secondary, .dark .settings-panel .tox .tox-button-secondary, .tox .dark .settings-panel .tox-button-secondary, .dark .tox .picmo__popupContainer.picmo__light .settings-panel .tox-button-secondary, .dark .settings-panel .tox .tox-button, .tox .dark .settings-panel .tox-button, .dark .tox .picmo__popupContainer.picmo__light .settings-panel .tox-button, .dark .settings-panel [data-list] .page, [data-list] .dark .settings-panel .page, .dark [data-list] .picmo__popupContainer.picmo__light .settings-panel .page, .dark .settings-panel .table-list .page, .table-list .dark .settings-panel .page, .dark .table-list .picmo__popupContainer.picmo__light .settings-panel .page {
+.dark .google-map-control-btn .picmo__popupContainer.picmo__light .settings-panel .zoomOut, .dark .settings-panel .tox .tox-dialog__footer .tox-button--secondary, .tox .tox-dialog__footer .dark .settings-panel .tox-button--secondary, .dark .tox .tox-dialog__footer .picmo__popupContainer.picmo__light .settings-panel .tox-button--secondary, .dark .settings-panel .tox .tox-button-secondary, .tox .dark .settings-panel .tox-button-secondary, .dark .tox .picmo__popupContainer.picmo__light .settings-panel .tox-button-secondary, .dark .settings-panel .tox .tox-button, .tox .dark .settings-panel .tox-button, .dark .tox .picmo__popupContainer.picmo__light .settings-panel .tox-button, .dark .settings-panel [data-list] .page, [data-list] .dark .settings-panel .page, .dark [data-list] .picmo__popupContainer.picmo__light .settings-panel .page,
+.dark .settings-panel .table-list .page,
+.table-list .dark .settings-panel .page,
+.dark .table-list .picmo__popupContainer.picmo__light .settings-panel .page {
   --phoenix-btn-color: #8a94ad;
 }
 .dark .btn-soft-primary, .dark .picmo__popupContainer.picmo__light .btn-soft-primary {
@@ -1002,6 +1024,78 @@
 }
 .dark .navbar-darker .search-box .search-box-icon {
   color: #525b75;
+}
+.dark .table-primary, .dark .picmo__popupContainer.picmo__light .table-primary {
+  --phoenix-table-bg: #0b1733;
+  --phoenix-table-color: #fff;
+  --phoenix-table-hover-bg: #477eff;
+  --phoenix-table-hover-color: #fff;
+  --phoenix-table-striped-bg: #427bff;
+  --phoenix-table-striped-color: #fff;
+  --phoenix-table-active-bg: #4c82ff;
+  --phoenix-table-active-color: #fff;
+  --phoenix-table-border-color: rgba(76, 130, 255, 0.05);
+}
+.dark .table-secondary, .dark .picmo__popupContainer.picmo__light .table-secondary {
+  --phoenix-table-bg: #0a0b0f;
+  --phoenix-table-color: #fff;
+  --phoenix-table-hover-bg: #404658;
+  --phoenix-table-hover-color: #fff;
+  --phoenix-table-striped-bg: #3b4153;
+  --phoenix-table-striped-color: #fff;
+  --phoenix-table-active-bg: #464b5c;
+  --phoenix-table-active-color: #fff;
+  --phoenix-table-border-color: rgba(70, 75, 92, 0.05);
+}
+.dark .table-success, .dark .picmo__popupContainer.picmo__light .table-success {
+  --phoenix-table-bg: #072301;
+  --phoenix-table-color: #fff;
+  --phoenix-table-hover-bg: #35b616;
+  --phoenix-table-hover-color: #fff;
+  --phoenix-table-striped-bg: #30b410;
+  --phoenix-table-striped-color: #fff;
+  --phoenix-table-active-bg: #3bb81c;
+  --phoenix-table-active-color: #fff;
+  --phoenix-table-border-color: rgba(59, 184, 28, 0.05);
+}
+.dark .table-info, .dark .picmo__popupContainer.picmo__light .table-info {
+  --phoenix-table-bg: #001e2f;
+  --phoenix-table-color: #fff;
+  --phoenix-table-hover-bg: #139fed;
+  --phoenix-table-hover-color: #fff;
+  --phoenix-table-striped-bg: #0d9cec;
+  --phoenix-table-striped-color: #fff;
+  --phoenix-table-active-bg: #1aa1ed;
+  --phoenix-table-active-color: #fff;
+  --phoenix-table-border-color: rgba(26, 161, 237, 0.05);
+}
+.dark .table-warning, .dark .picmo__popupContainer.picmo__light .table-warning {
+  --phoenix-table-bg: #2e1802;
+  --phoenix-table-color: #fff;
+  --phoenix-table-hover-bg: #e7821d;
+  --phoenix-table-hover-color: #fff;
+  --phoenix-table-striped-bg: #e67f17;
+  --phoenix-table-striped-color: #fff;
+  --phoenix-table-active-bg: #e88623;
+  --phoenix-table-active-color: #fff;
+  --phoenix-table-border-color: rgba(232, 134, 35, 0.05);
+}
+.dark .table-danger, .dark .picmo__popupContainer.picmo__light .table-danger {
+  --phoenix-table-bg: #2f0600;
+  --phoenix-table-color: #fff;
+  --phoenix-table-hover-bg: #ee3113;
+  --phoenix-table-hover-color: #fff;
+  --phoenix-table-striped-bg: #ee2b0d;
+  --phoenix-table-striped-color: #fff;
+  --phoenix-table-active-bg: #ef361a;
+  --phoenix-table-active-color: #fff;
+  --phoenix-table-border-color: rgba(239, 54, 26, 0.05);
+}
+.dark .table-light, .dark .picmo__popupContainer.picmo__light .table-light {
+  --phoenix-table-bg: #eff2f6;
+}
+.dark .table-dark, .dark .picmo__popupContainer.picmo__light .table-dark {
+  --phoenix-table-bg: $value;
 }
 
 /*-----------------------------------------------
@@ -1555,7 +1649,7 @@ progress {
   color: #6e7891;
 }
 
-.container,
+.container, .product-filter-container,
 .container-fluid,
 .container-small-xl,
 .container-small-lg,
@@ -1576,27 +1670,27 @@ progress {
 }
 
 @media (min-width: 576px) {
-  .container-sm, .container {
+  .container-sm, .container, .product-filter-container {
     max-width: 540px;
   }
 }
 @media (min-width: 768px) {
-  .container-md, .container-sm, .container {
+  .container-md, .container-sm, .container, .product-filter-container {
     max-width: 720px;
   }
 }
 @media (min-width: 992px) {
-  .container-lg, .container-md, .container-sm, .container {
+  .container-lg, .container-md, .container-sm, .container, .product-filter-container {
     max-width: 960px;
   }
 }
 @media (min-width: 1200px) {
-  .container-xl, .container-lg, .container-md, .container-sm, .container {
+  .container-xl, .container-lg, .container-md, .container-sm, .container, .product-filter-container {
     max-width: 1184px;
   }
 }
 @media (min-width: 1540px) {
-  .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
+  .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container, .product-filter-container {
     max-width: 1678px;
   }
 }
@@ -3777,8 +3871,8 @@ progress {
   background-color: var(--phoenix-input-bg);
   border-color: #3874ff;
   outline: 0;
-  -webkit-box-shadow: inset 0 1px 2px transparent, 0 0 0 0.25rem rgba(56, 116, 255, 0.25);
-  box-shadow: inset 0 1px 2px transparent, 0 0 0 0.25rem rgba(56, 116, 255, 0.25);
+  -webkit-box-shadow: inset 0 1px 2px transparent, inset 0 0 0 30px var(--phoenix-input-bg), 0 0 0 0.25rem rgba(56, 116, 255, 0.25);
+  box-shadow: inset 0 1px 2px transparent, inset 0 0 0 30px var(--phoenix-input-bg), 0 0 0 0.25rem rgba(56, 116, 255, 0.25);
 }
 .form-control::-webkit-date-and-time-value {
   height: 1.49em;
@@ -4113,8 +4207,10 @@ textarea.form-control-lg {
   pointer-events: none;
 }
 .btn-check[disabled] + .btn, .google-map-control-btn .btn-check[disabled] + .zoomIn,
-.google-map-control-btn .btn-check[disabled] + .zoomOut, .tox .tox-dialog__footer .btn-check[disabled] + .tox-button:last-child, .tox .tox-dialog__footer .btn-check[disabled] + .tox-button--secondary, .tox .btn-check[disabled] + .tox-button-secondary, .tox .btn-check[disabled] + .tox-button, [data-list] .btn-check[disabled] + .page, .table-list .btn-check[disabled] + .page, .btn-check:disabled + .btn, .google-map-control-btn .btn-check:disabled + .zoomIn,
-.google-map-control-btn .btn-check:disabled + .zoomOut, .tox .tox-dialog__footer .btn-check:disabled + .tox-button:last-child, .tox .tox-dialog__footer .btn-check:disabled + .tox-button--secondary, .tox .btn-check:disabled + .tox-button-secondary, .tox .btn-check:disabled + .tox-button, [data-list] .btn-check:disabled + .page, .table-list .btn-check:disabled + .page {
+.google-map-control-btn .btn-check[disabled] + .zoomOut, .tox .tox-dialog__footer .btn-check[disabled] + .tox-button:last-child, .tox .tox-dialog__footer .btn-check[disabled] + .tox-button--secondary, .tox .btn-check[disabled] + .tox-button-secondary, .tox .btn-check[disabled] + .tox-button, [data-list] .btn-check[disabled] + .page,
+.table-list .btn-check[disabled] + .page, .btn-check:disabled + .btn, .google-map-control-btn .btn-check:disabled + .zoomIn,
+.google-map-control-btn .btn-check:disabled + .zoomOut, .tox .tox-dialog__footer .btn-check:disabled + .tox-button:last-child, .tox .tox-dialog__footer .btn-check:disabled + .tox-button--secondary, .tox .btn-check:disabled + .tox-button-secondary, .tox .btn-check:disabled + .tox-button, [data-list] .btn-check:disabled + .page,
+.table-list .btn-check:disabled + .page {
   pointer-events: none;
   -webkit-filter: none;
   filter: none;
@@ -4134,11 +4230,11 @@ textarea.form-control-lg {
   outline: 0;
 }
 .form-range:focus::-webkit-slider-thumb {
-  -webkit-box-shadow: 0 0 0 1px #f5f7fa, 0 0 0 0.25rem rgba(56, 116, 255, 0.25);
-  box-shadow: 0 0 0 1px #f5f7fa, 0 0 0 0.25rem rgba(56, 116, 255, 0.25);
+  -webkit-box-shadow: 0 0 0 1px #f5f7fa, inset 0 0 0 30px var(--phoenix-input-bg), 0 0 0 0.25rem rgba(56, 116, 255, 0.25);
+  box-shadow: 0 0 0 1px #f5f7fa, inset 0 0 0 30px var(--phoenix-input-bg), 0 0 0 0.25rem rgba(56, 116, 255, 0.25);
 }
 .form-range:focus::-moz-range-thumb {
-  box-shadow: 0 0 0 1px #f5f7fa, 0 0 0 0.25rem rgba(56, 116, 255, 0.25);
+  box-shadow: 0 0 0 1px #f5f7fa, inset 0 0 0 30px var(--phoenix-input-bg), 0 0 0 0.25rem rgba(56, 116, 255, 0.25);
 }
 .form-range::-moz-focus-outer {
   border: 0;
@@ -4358,13 +4454,17 @@ textarea.form-control-lg {
 }
 .input-group .btn, .input-group .google-map-control-btn .zoomIn, .google-map-control-btn .input-group .zoomIn,
 .input-group .google-map-control-btn .zoomOut,
-.google-map-control-btn .input-group .zoomOut, .input-group .tox .tox-dialog__footer .tox-button:last-child, .tox .tox-dialog__footer .input-group .tox-button:last-child, .input-group .tox .tox-dialog__footer .tox-button--secondary, .tox .tox-dialog__footer .input-group .tox-button--secondary, .input-group .tox .tox-button-secondary, .tox .input-group .tox-button-secondary, .input-group .tox .tox-button, .tox .input-group .tox-button, .input-group [data-list] .page, [data-list] .input-group .page, .input-group .table-list .page, .table-list .input-group .page {
+.google-map-control-btn .input-group .zoomOut, .input-group .tox .tox-dialog__footer .tox-button:last-child, .tox .tox-dialog__footer .input-group .tox-button:last-child, .input-group .tox .tox-dialog__footer .tox-button--secondary, .tox .tox-dialog__footer .input-group .tox-button--secondary, .input-group .tox .tox-button-secondary, .tox .input-group .tox-button-secondary, .input-group .tox .tox-button, .tox .input-group .tox-button, .input-group [data-list] .page, [data-list] .input-group .page,
+.input-group .table-list .page,
+.table-list .input-group .page {
   position: relative;
   z-index: 2;
 }
 .input-group .btn:focus, .input-group .google-map-control-btn .zoomIn:focus, .google-map-control-btn .input-group .zoomIn:focus,
 .input-group .google-map-control-btn .zoomOut:focus,
-.google-map-control-btn .input-group .zoomOut:focus, .input-group .tox .tox-dialog__footer .tox-button--secondary:focus, .tox .tox-dialog__footer .input-group .tox-button--secondary:focus, .input-group .tox .tox-button-secondary:focus, .tox .input-group .tox-button-secondary:focus, .input-group .tox .tox-button:focus, .tox .input-group .tox-button:focus, .input-group [data-list] .page:focus, [data-list] .input-group .page:focus, .input-group .table-list .page:focus, .table-list .input-group .page:focus {
+.google-map-control-btn .input-group .zoomOut:focus, .input-group .tox .tox-dialog__footer .tox-button--secondary:focus, .tox .tox-dialog__footer .input-group .tox-button--secondary:focus, .input-group .tox .tox-button-secondary:focus, .tox .input-group .tox-button-secondary:focus, .input-group .tox .tox-button:focus, .tox .input-group .tox-button:focus, .input-group [data-list] .page:focus, [data-list] .input-group .page:focus,
+.input-group .table-list .page:focus,
+.table-list .input-group .page:focus {
   z-index: 5;
 }
 
@@ -4964,7 +5064,8 @@ textarea.form-control-lg {
   text-decoration: none;
   background-color: var(--phoenix-dropdown-link-active-bg);
 }
-.dropdown-item.disabled, .dropdown-item:disabled {
+.dropdown-item.disabled, [data-list] li.disabled button.dropdown-item,
+.table-list li.disabled button.dropdown-item, .dropdown-item:disabled {
   color: var(--phoenix-dropdown-link-disabled-color);
   pointer-events: none;
   background-color: transparent;
@@ -5013,7 +5114,8 @@ textarea.form-control-lg {
   vertical-align: middle;
 }
 .btn-group > .btn, .google-map-control-btn .btn-group > .zoomIn,
-.google-map-control-btn .btn-group > .zoomOut, .tox .tox-dialog__footer .btn-group > .tox-button:last-child, .tox .tox-dialog__footer .btn-group > .tox-button--secondary, .tox .btn-group > .tox-button-secondary, .tox .btn-group > .tox-button, [data-list] .btn-group > .page, .table-list .btn-group > .page,
+.google-map-control-btn .btn-group > .zoomOut, .tox .tox-dialog__footer .btn-group > .tox-button:last-child, .tox .tox-dialog__footer .btn-group > .tox-button--secondary, .tox .btn-group > .tox-button-secondary, .tox .btn-group > .tox-button, [data-list] .btn-group > .page,
+.table-list .btn-group > .page,
 .btn-group-vertical > .btn,
 .google-map-control-btn .btn-group-vertical > .zoomIn,
 .google-map-control-btn .btn-group-vertical > .zoomOut,
@@ -5029,7 +5131,8 @@ textarea.form-control-lg {
   flex: 1 1 auto;
 }
 .btn-group > .btn-check:checked + .btn, .google-map-control-btn .btn-group > .btn-check:checked + .zoomIn,
-.google-map-control-btn .btn-group > .btn-check:checked + .zoomOut, .tox .tox-dialog__footer .btn-group > .btn-check:checked + .tox-button--secondary, .tox .btn-group > .btn-check:checked + .tox-button-secondary, .tox .btn-group > .btn-check:checked + .tox-button, [data-list] .btn-group > .btn-check:checked + .page, .table-list .btn-group > .btn-check:checked + .page,
+.google-map-control-btn .btn-group > .btn-check:checked + .zoomOut, .tox .tox-dialog__footer .btn-group > .btn-check:checked + .tox-button--secondary, .tox .btn-group > .btn-check:checked + .tox-button-secondary, .tox .btn-group > .btn-check:checked + .tox-button, [data-list] .btn-group > .btn-check:checked + .page,
+.table-list .btn-group > .btn-check:checked + .page,
 .btn-group > .btn-check:focus + .btn,
 .google-map-control-btn .btn-group > .btn-check:focus + .zoomIn,
 .google-map-control-btn .btn-group > .btn-check:focus + .zoomOut,
@@ -5147,12 +5250,14 @@ textarea.form-control-lg {
   border-radius: 0.375rem;
 }
 .btn-group > :not(.btn-check:first-child) + .btn, .google-map-control-btn .btn-group > :not(.btn-check:first-child) + .zoomIn,
-.google-map-control-btn .btn-group > :not(.btn-check:first-child) + .zoomOut, .tox .tox-dialog__footer .btn-group > :not(.btn-check:first-child) + .tox-button--secondary, .tox .btn-group > :not(.btn-check:first-child) + .tox-button-secondary, .tox .btn-group > :not(.btn-check:first-child) + .tox-button, [data-list] .btn-group > :not(.btn-check:first-child) + .page, .table-list .btn-group > :not(.btn-check:first-child) + .page,
+.google-map-control-btn .btn-group > :not(.btn-check:first-child) + .zoomOut, .tox .tox-dialog__footer .btn-group > :not(.btn-check:first-child) + .tox-button--secondary, .tox .btn-group > :not(.btn-check:first-child) + .tox-button-secondary, .tox .btn-group > :not(.btn-check:first-child) + .tox-button, [data-list] .btn-group > :not(.btn-check:first-child) + .page,
+.table-list .btn-group > :not(.btn-check:first-child) + .page,
 .btn-group > .btn-group:not(:first-child) {
   margin-left: -1px;
 }
 .btn-group > .btn:not(:last-child):not(.dropdown-toggle), .google-map-control-btn .btn-group > .zoomIn:not(:last-child):not(.dropdown-toggle),
-.google-map-control-btn .btn-group > .zoomOut:not(:last-child):not(.dropdown-toggle), .tox .tox-dialog__footer .btn-group > .tox-button:not(:last-child):not(.dropdown-toggle):last-child, .tox .tox-dialog__footer .btn-group > .tox-button--secondary:not(:last-child):not(.dropdown-toggle), .tox .btn-group > .tox-button-secondary:not(:last-child):not(.dropdown-toggle), .tox .btn-group > .tox-button:not(:last-child):not(.dropdown-toggle), [data-list] .btn-group > .page:not(:last-child):not(.dropdown-toggle), .table-list .btn-group > .page:not(:last-child):not(.dropdown-toggle),
+.google-map-control-btn .btn-group > .zoomOut:not(:last-child):not(.dropdown-toggle), .tox .tox-dialog__footer .btn-group > .tox-button:not(:last-child):not(.dropdown-toggle):last-child, .tox .tox-dialog__footer .btn-group > .tox-button--secondary:not(:last-child):not(.dropdown-toggle), .tox .btn-group > .tox-button-secondary:not(:last-child):not(.dropdown-toggle), .tox .btn-group > .tox-button:not(:last-child):not(.dropdown-toggle), [data-list] .btn-group > .page:not(:last-child):not(.dropdown-toggle),
+.table-list .btn-group > .page:not(:last-child):not(.dropdown-toggle),
 .btn-group > .btn.dropdown-toggle-split:first-child,
 .google-map-control-btn .btn-group > .dropdown-toggle-split.zoomIn:first-child,
 .google-map-control-btn .btn-group > .dropdown-toggle-split.zoomOut:first-child,
@@ -5174,7 +5279,8 @@ textarea.form-control-lg {
   border-bottom-right-radius: 0;
 }
 .btn-group > .btn:nth-child(n+3), .google-map-control-btn .btn-group > .zoomIn:nth-child(n+3),
-.google-map-control-btn .btn-group > .zoomOut:nth-child(n+3), .tox .tox-dialog__footer .btn-group > .tox-button:nth-child(n+3):last-child, .tox .tox-dialog__footer .btn-group > .tox-button--secondary:nth-child(n+3), .tox .btn-group > .tox-button-secondary:nth-child(n+3), .tox .btn-group > .tox-button:nth-child(n+3), [data-list] .btn-group > .page:nth-child(n+3), .table-list .btn-group > .page:nth-child(n+3),
+.google-map-control-btn .btn-group > .zoomOut:nth-child(n+3), .tox .tox-dialog__footer .btn-group > .tox-button:nth-child(n+3):last-child, .tox .tox-dialog__footer .btn-group > .tox-button--secondary:nth-child(n+3), .tox .btn-group > .tox-button-secondary:nth-child(n+3), .tox .btn-group > .tox-button:nth-child(n+3), [data-list] .btn-group > .page:nth-child(n+3),
+.table-list .btn-group > .page:nth-child(n+3),
 .btn-group > :not(.btn-check) + .btn,
 .google-map-control-btn .btn-group > :not(.btn-check) + .zoomIn,
 .google-map-control-btn .btn-group > :not(.btn-check) + .zoomOut,
@@ -5207,13 +5313,15 @@ textarea.form-control-lg {
 }
 
 .btn-sm + .dropdown-toggle-split, .btn-group-sm > .btn + .dropdown-toggle-split, .google-map-control-btn .btn-group-sm > .zoomIn + .dropdown-toggle-split,
-.google-map-control-btn .btn-group-sm > .zoomOut + .dropdown-toggle-split, .tox .tox-dialog__footer .btn-group-sm > .tox-button--secondary + .dropdown-toggle-split, .tox .btn-group-sm > .tox-button-secondary + .dropdown-toggle-split, .tox .btn-group-sm > .tox-button + .dropdown-toggle-split, [data-list] .btn-group-sm > .page + .dropdown-toggle-split, .table-list .btn-group-sm > .page + .dropdown-toggle-split {
+.google-map-control-btn .btn-group-sm > .zoomOut + .dropdown-toggle-split, .tox .tox-dialog__footer .btn-group-sm > .tox-button--secondary + .dropdown-toggle-split, .tox .btn-group-sm > .tox-button-secondary + .dropdown-toggle-split, .tox .btn-group-sm > .tox-button + .dropdown-toggle-split, [data-list] .btn-group-sm > .page + .dropdown-toggle-split,
+.table-list .btn-group-sm > .page + .dropdown-toggle-split {
   padding-right: 0.75rem;
   padding-left: 0.75rem;
 }
 
 .btn-lg + .dropdown-toggle-split, .btn-group-lg > .btn + .dropdown-toggle-split, .google-map-control-btn .btn-group-lg > .zoomIn + .dropdown-toggle-split,
-.google-map-control-btn .btn-group-lg > .zoomOut + .dropdown-toggle-split, .tox .tox-dialog__footer .btn-group-lg > .tox-button--secondary + .dropdown-toggle-split, .tox .btn-group-lg > .tox-button-secondary + .dropdown-toggle-split, .tox .btn-group-lg > .tox-button + .dropdown-toggle-split, [data-list] .btn-group-lg > .page + .dropdown-toggle-split, .table-list .btn-group-lg > .page + .dropdown-toggle-split {
+.google-map-control-btn .btn-group-lg > .zoomOut + .dropdown-toggle-split, .tox .tox-dialog__footer .btn-group-lg > .tox-button--secondary + .dropdown-toggle-split, .tox .btn-group-lg > .tox-button-secondary + .dropdown-toggle-split, .tox .btn-group-lg > .tox-button + .dropdown-toggle-split, [data-list] .btn-group-lg > .page + .dropdown-toggle-split,
+.table-list .btn-group-lg > .page + .dropdown-toggle-split {
   padding-right: 1.125rem;
   padding-left: 1.125rem;
 }
@@ -5240,17 +5348,20 @@ textarea.form-control-lg {
   justify-content: center;
 }
 .btn-group-vertical > .btn, .google-map-control-btn .btn-group-vertical > .zoomIn,
-.google-map-control-btn .btn-group-vertical > .zoomOut, .tox .tox-dialog__footer .btn-group-vertical > .tox-button:last-child, .tox .tox-dialog__footer .btn-group-vertical > .tox-button--secondary, .tox .btn-group-vertical > .tox-button-secondary, .tox .btn-group-vertical > .tox-button, [data-list] .btn-group-vertical > .page, .table-list .btn-group-vertical > .page,
+.google-map-control-btn .btn-group-vertical > .zoomOut, .tox .tox-dialog__footer .btn-group-vertical > .tox-button:last-child, .tox .tox-dialog__footer .btn-group-vertical > .tox-button--secondary, .tox .btn-group-vertical > .tox-button-secondary, .tox .btn-group-vertical > .tox-button, [data-list] .btn-group-vertical > .page,
+.table-list .btn-group-vertical > .page,
 .btn-group-vertical > .btn-group {
   width: 100%;
 }
 .btn-group-vertical > .btn:not(:first-child), .google-map-control-btn .btn-group-vertical > .zoomIn:not(:first-child),
-.google-map-control-btn .btn-group-vertical > .zoomOut:not(:first-child), .tox .tox-dialog__footer .btn-group-vertical > .tox-button:not(:first-child):last-child, .tox .tox-dialog__footer .btn-group-vertical > .tox-button--secondary:not(:first-child), .tox .btn-group-vertical > .tox-button-secondary:not(:first-child), .tox .btn-group-vertical > .tox-button:not(:first-child), [data-list] .btn-group-vertical > .page:not(:first-child), .table-list .btn-group-vertical > .page:not(:first-child),
+.google-map-control-btn .btn-group-vertical > .zoomOut:not(:first-child), .tox .tox-dialog__footer .btn-group-vertical > .tox-button:not(:first-child):last-child, .tox .tox-dialog__footer .btn-group-vertical > .tox-button--secondary:not(:first-child), .tox .btn-group-vertical > .tox-button-secondary:not(:first-child), .tox .btn-group-vertical > .tox-button:not(:first-child), [data-list] .btn-group-vertical > .page:not(:first-child),
+.table-list .btn-group-vertical > .page:not(:first-child),
 .btn-group-vertical > .btn-group:not(:first-child) {
   margin-top: -1px;
 }
 .btn-group-vertical > .btn:not(:last-child):not(.dropdown-toggle), .google-map-control-btn .btn-group-vertical > .zoomIn:not(:last-child):not(.dropdown-toggle),
-.google-map-control-btn .btn-group-vertical > .zoomOut:not(:last-child):not(.dropdown-toggle), .tox .tox-dialog__footer .btn-group-vertical > .tox-button:not(:last-child):not(.dropdown-toggle):last-child, .tox .tox-dialog__footer .btn-group-vertical > .tox-button--secondary:not(:last-child):not(.dropdown-toggle), .tox .btn-group-vertical > .tox-button-secondary:not(:last-child):not(.dropdown-toggle), .tox .btn-group-vertical > .tox-button:not(:last-child):not(.dropdown-toggle), [data-list] .btn-group-vertical > .page:not(:last-child):not(.dropdown-toggle), .table-list .btn-group-vertical > .page:not(:last-child):not(.dropdown-toggle),
+.google-map-control-btn .btn-group-vertical > .zoomOut:not(:last-child):not(.dropdown-toggle), .tox .tox-dialog__footer .btn-group-vertical > .tox-button:not(:last-child):not(.dropdown-toggle):last-child, .tox .tox-dialog__footer .btn-group-vertical > .tox-button--secondary:not(:last-child):not(.dropdown-toggle), .tox .btn-group-vertical > .tox-button-secondary:not(:last-child):not(.dropdown-toggle), .tox .btn-group-vertical > .tox-button:not(:last-child):not(.dropdown-toggle), [data-list] .btn-group-vertical > .page:not(:last-child):not(.dropdown-toggle),
+.table-list .btn-group-vertical > .page:not(:last-child):not(.dropdown-toggle),
 .btn-group-vertical > .btn-group:not(:last-child) > .btn,
 .google-map-control-btn .btn-group-vertical > .btn-group:not(:last-child) > .zoomIn,
 .google-map-control-btn .btn-group-vertical > .btn-group:not(:last-child) > .zoomOut,
@@ -5281,13 +5392,32 @@ textarea.form-control-lg {
 .tox .google-map-control-btn .btn-group-vertical > .zoomOut ~ .tox-button,
 .google-map-control-btn .tox .btn-group-vertical > .zoomOut ~ .tox-button, .tox .tox-dialog__footer .btn-group-vertical > .tox-button--secondary ~ .tox-button, .tox .btn-group-vertical > .tox-button-secondary ~ .tox-button, .tox .btn-group-vertical > .tox-button ~ .tox-button, [data-list] .btn-group-vertical > .page ~ .btn, [data-list] .google-map-control-btn .btn-group-vertical > .page ~ .zoomIn, .google-map-control-btn [data-list] .btn-group-vertical > .page ~ .zoomIn,
 [data-list] .google-map-control-btn .btn-group-vertical > .page ~ .zoomOut,
-.google-map-control-btn [data-list] .btn-group-vertical > .page ~ .zoomOut, [data-list] .tox .tox-dialog__footer .btn-group-vertical > .page ~ .tox-button--secondary, .tox .tox-dialog__footer [data-list] .btn-group-vertical > .page ~ .tox-button--secondary, [data-list] .tox .btn-group-vertical > .page ~ .tox-button-secondary, .tox [data-list] .btn-group-vertical > .page ~ .tox-button-secondary, [data-list] .tox .btn-group-vertical > .page ~ .tox-button, .tox [data-list] .btn-group-vertical > .page ~ .tox-button, .table-list .btn-group-vertical > .page ~ .btn, .table-list .google-map-control-btn .btn-group-vertical > .page ~ .zoomIn, .google-map-control-btn .table-list .btn-group-vertical > .page ~ .zoomIn,
+.google-map-control-btn [data-list] .btn-group-vertical > .page ~ .zoomOut, [data-list] .tox .tox-dialog__footer .btn-group-vertical > .page ~ .tox-button--secondary, .tox .tox-dialog__footer [data-list] .btn-group-vertical > .page ~ .tox-button--secondary, [data-list] .tox .btn-group-vertical > .page ~ .tox-button-secondary, .tox [data-list] .btn-group-vertical > .page ~ .tox-button-secondary, [data-list] .tox .btn-group-vertical > .page ~ .tox-button, .tox [data-list] .btn-group-vertical > .page ~ .tox-button,
+.table-list .btn-group-vertical > .page ~ .btn,
+.table-list .google-map-control-btn .btn-group-vertical > .page ~ .zoomIn,
+.google-map-control-btn .table-list .btn-group-vertical > .page ~ .zoomIn,
 .table-list .google-map-control-btn .btn-group-vertical > .page ~ .zoomOut,
-.google-map-control-btn .table-list .btn-group-vertical > .page ~ .zoomOut, .table-list .tox .tox-dialog__footer .btn-group-vertical > .page ~ .tox-button--secondary, .tox .tox-dialog__footer .table-list .btn-group-vertical > .page ~ .tox-button--secondary, .table-list .tox .btn-group-vertical > .page ~ .tox-button-secondary, .tox .table-list .btn-group-vertical > .page ~ .tox-button-secondary, .table-list .tox .btn-group-vertical > .page ~ .tox-button, .tox .table-list .btn-group-vertical > .page ~ .tox-button, [data-list] .btn-group-vertical > .btn ~ .page, [data-list] .google-map-control-btn .btn-group-vertical > .zoomIn ~ .page, .google-map-control-btn [data-list] .btn-group-vertical > .zoomIn ~ .page,
+.google-map-control-btn .table-list .btn-group-vertical > .page ~ .zoomOut,
+.table-list .tox .tox-dialog__footer .btn-group-vertical > .page ~ .tox-button--secondary,
+.tox .tox-dialog__footer .table-list .btn-group-vertical > .page ~ .tox-button--secondary,
+.table-list .tox .btn-group-vertical > .page ~ .tox-button-secondary,
+.tox .table-list .btn-group-vertical > .page ~ .tox-button-secondary,
+.table-list .tox .btn-group-vertical > .page ~ .tox-button,
+.tox .table-list .btn-group-vertical > .page ~ .tox-button, [data-list] .btn-group-vertical > .btn ~ .page, [data-list] .google-map-control-btn .btn-group-vertical > .zoomIn ~ .page, .google-map-control-btn [data-list] .btn-group-vertical > .zoomIn ~ .page,
 [data-list] .google-map-control-btn .btn-group-vertical > .zoomOut ~ .page,
-.google-map-control-btn [data-list] .btn-group-vertical > .zoomOut ~ .page, [data-list] .tox .tox-dialog__footer .btn-group-vertical > .tox-button--secondary ~ .page, .tox .tox-dialog__footer [data-list] .btn-group-vertical > .tox-button--secondary ~ .page, [data-list] .tox .btn-group-vertical > .tox-button-secondary ~ .page, .tox [data-list] .btn-group-vertical > .tox-button-secondary ~ .page, [data-list] .tox .btn-group-vertical > .tox-button ~ .page, .tox [data-list] .btn-group-vertical > .tox-button ~ .page, [data-list] .btn-group-vertical > .page ~ .page, .table-list .btn-group-vertical > .btn ~ .page, .table-list .google-map-control-btn .btn-group-vertical > .zoomIn ~ .page, .google-map-control-btn .table-list .btn-group-vertical > .zoomIn ~ .page,
+.google-map-control-btn [data-list] .btn-group-vertical > .zoomOut ~ .page, [data-list] .tox .tox-dialog__footer .btn-group-vertical > .tox-button--secondary ~ .page, .tox .tox-dialog__footer [data-list] .btn-group-vertical > .tox-button--secondary ~ .page, [data-list] .tox .btn-group-vertical > .tox-button-secondary ~ .page, .tox [data-list] .btn-group-vertical > .tox-button-secondary ~ .page, [data-list] .tox .btn-group-vertical > .tox-button ~ .page, .tox [data-list] .btn-group-vertical > .tox-button ~ .page, [data-list] .btn-group-vertical > .page ~ .page,
+.table-list .btn-group-vertical > .btn ~ .page,
+.table-list .google-map-control-btn .btn-group-vertical > .zoomIn ~ .page,
+.google-map-control-btn .table-list .btn-group-vertical > .zoomIn ~ .page,
 .table-list .google-map-control-btn .btn-group-vertical > .zoomOut ~ .page,
-.google-map-control-btn .table-list .btn-group-vertical > .zoomOut ~ .page, .table-list .tox .tox-dialog__footer .btn-group-vertical > .tox-button--secondary ~ .page, .tox .tox-dialog__footer .table-list .btn-group-vertical > .tox-button--secondary ~ .page, .table-list .tox .btn-group-vertical > .tox-button-secondary ~ .page, .tox .table-list .btn-group-vertical > .tox-button-secondary ~ .page, .table-list .tox .btn-group-vertical > .tox-button ~ .page, .tox .table-list .btn-group-vertical > .tox-button ~ .page, .table-list .btn-group-vertical > .page ~ .page,
+.google-map-control-btn .table-list .btn-group-vertical > .zoomOut ~ .page,
+.table-list .tox .tox-dialog__footer .btn-group-vertical > .tox-button--secondary ~ .page,
+.tox .tox-dialog__footer .table-list .btn-group-vertical > .tox-button--secondary ~ .page,
+.table-list .tox .btn-group-vertical > .tox-button-secondary ~ .page,
+.tox .table-list .btn-group-vertical > .tox-button-secondary ~ .page,
+.table-list .tox .btn-group-vertical > .tox-button ~ .page,
+.tox .table-list .btn-group-vertical > .tox-button ~ .page,
+.table-list .btn-group-vertical > .page ~ .page,
 .btn-group-vertical > .btn-group:not(:first-child) > .btn,
 .google-map-control-btn .btn-group-vertical > .btn-group:not(:first-child) > .zoomIn,
 .google-map-control-btn .btn-group-vertical > .btn-group:not(:first-child) > .zoomOut,
@@ -5338,7 +5468,8 @@ textarea.form-control-lg {
   color: var(--phoenix-nav-link-hover-color);
   text-decoration: none;
 }
-.nav-link.disabled {
+.nav-link.disabled, [data-list] li.disabled button.nav-link,
+.table-list li.disabled button.nav-link {
   color: var(--phoenix-nav-link-disabled-color);
   pointer-events: none;
   cursor: default;
@@ -5365,7 +5496,9 @@ textarea.form-control-lg {
   isolation: isolate;
   border-color: var(--phoenix-nav-tabs-link-hover-border-color);
 }
-.nav-tabs .nav-link.disabled, .nav-tabs .nav-link:disabled {
+.nav-tabs .nav-link.disabled, .nav-tabs [data-list] li.disabled button.nav-link, [data-list] li.disabled .nav-tabs button.nav-link,
+.nav-tabs .table-list li.disabled button.nav-link,
+.table-list li.disabled .nav-tabs button.nav-link, .nav-tabs .nav-link:disabled {
   color: var(--phoenix-nav-link-disabled-color);
   background-color: transparent;
   border-color: transparent;
@@ -5468,7 +5601,7 @@ textarea.form-control-lg {
   justify-content: space-between;
   padding: var(--phoenix-navbar-padding-y) var(--phoenix-navbar-padding-x);
 }
-.navbar > .container,
+.navbar > .container, .navbar > .product-filter-container,
 .navbar > .container-fluid,
 .navbar > .container-small-xl,
 .navbar > .container-small-lg,
@@ -6474,7 +6607,9 @@ textarea.form-control-lg {
   background-color: var(--phoenix-pagination-active-bg);
   border-color: var(--phoenix-pagination-active-border-color);
 }
-.page-link.disabled, .disabled > .page-link {
+.page-link.disabled, [data-list] li.disabled button.page-link,
+.table-list li.disabled button.page-link, .disabled > .page-link, [data-list] li.disabled button > .page-link,
+.table-list li.disabled button > .page-link {
   color: var(--phoenix-pagination-disabled-color);
   pointer-events: none;
   background-color: var(--phoenix-pagination-disabled-bg);
@@ -6530,7 +6665,8 @@ textarea.form-control-lg {
 }
 
 .btn .badge, .google-map-control-btn .zoomIn .badge,
-.google-map-control-btn .zoomOut .badge, .tox .tox-dialog__footer .tox-button:last-child .badge, .tox .tox-dialog__footer .tox-button--secondary .badge, .tox .tox-button-secondary .badge, .tox .tox-button .badge, [data-list] .page .badge, .table-list .page .badge {
+.google-map-control-btn .zoomOut .badge, .tox .tox-dialog__footer .tox-button:last-child .badge, .tox .tox-dialog__footer .tox-button--secondary .badge, .tox .tox-button-secondary .badge, .tox .tox-button .badge, [data-list] .page .badge,
+.table-list .page .badge {
   position: relative;
   top: -1px;
 }
@@ -6635,7 +6771,8 @@ textarea.form-control-lg {
   box-shadow: 0 0 0 0.25rem rgba(56, 116, 255, 0.25);
   opacity: 1;
 }
-.btn-close:disabled, .btn-close.disabled {
+.btn-close:disabled, .btn-close.disabled, [data-list] li.disabled button.btn-close,
+.table-list li.disabled button.btn-close {
   pointer-events: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -8372,7 +8509,8 @@ textarea.form-control-lg {
   opacity: 0.5;
 }
 .placeholder.btn::before, .google-map-control-btn .placeholder.zoomIn::before,
-.google-map-control-btn .placeholder.zoomOut::before, .tox .tox-dialog__footer .placeholder.tox-button:last-child::before, .tox .tox-dialog__footer .placeholder.tox-button--secondary::before, .tox .placeholder.tox-button-secondary::before, .tox .placeholder.tox-button::before, [data-list] .placeholder.page::before, .table-list .placeholder.page::before {
+.google-map-control-btn .placeholder.zoomOut::before, .tox .tox-dialog__footer .placeholder.tox-button:last-child::before, .tox .tox-dialog__footer .placeholder.tox-button--secondary::before, .tox .placeholder.tox-button-secondary::before, .tox .placeholder.tox-button::before, [data-list] .placeholder.page::before,
+.table-list .placeholder.page::before {
   display: inline-block;
   content: "";
 }
@@ -20964,7 +21102,7 @@ samp {
 }
 
 .overflow-x-hidden {
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
 .stack-icon-item {
@@ -20981,6 +21119,16 @@ samp {
 
 html:not(.dark) .d-light-none {
   display: none;
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: var(--phoenix-gray-900);
+  -webkit-box-shadow: 0 0 0 30px var(--phoenix-input-bg) inset;
+  box-shadow: 0 0 0 30px var(--phoenix-input-bg) inset;
+}
+
+input::-webkit-contacts-auto-fill-button {
+  background-color: var(--phoenix-gray-900);
 }
 
 /*-----------------------------------------------
@@ -21013,7 +21161,8 @@ html:not(.dark) .d-light-none {
 }
 
 .btn, .google-map-control-btn .zoomIn,
-.google-map-control-btn .zoomOut, .tox .tox-dialog__footer .tox-button:last-child, .tox .tox-dialog__footer .tox-button--secondary, .tox .tox-button-secondary, .tox .tox-button, [data-list] .page, .table-list .page {
+.google-map-control-btn .zoomOut, .tox .tox-dialog__footer .tox-button:last-child, .tox .tox-dialog__footer .tox-button--secondary, .tox .tox-button-secondary, .tox .tox-button, [data-list] .page,
+.table-list .page {
   --phoenix-btn-padding-x: 1.5rem;
   --phoenix-btn-padding-y: 0.625rem;
   --phoenix-btn-font-family: ;
@@ -21055,22 +21204,26 @@ html:not(.dark) .d-light-none {
 }
 @media (prefers-reduced-motion: reduce) {
   .btn, .google-map-control-btn .zoomIn,
-.google-map-control-btn .zoomOut, .tox .tox-dialog__footer .tox-button:last-child, .tox .tox-dialog__footer .tox-button--secondary, .tox .tox-button-secondary, .tox .tox-button, [data-list] .page, .table-list .page {
+.google-map-control-btn .zoomOut, .tox .tox-dialog__footer .tox-button:last-child, .tox .tox-dialog__footer .tox-button--secondary, .tox .tox-button-secondary, .tox .tox-button, [data-list] .page,
+.table-list .page {
     -webkit-transition: none;
     -o-transition: none;
     transition: none;
   }
 }
 .btn:hover, .google-map-control-btn .zoomIn:hover,
-.google-map-control-btn .zoomOut:hover, .tox .tox-dialog__footer .tox-button:hover:last-child, .tox .tox-dialog__footer .tox-button--secondary:hover, .tox .tox-button-secondary:hover, .tox .tox-button:hover, [data-list] .page:hover, .table-list .page:hover {
+.google-map-control-btn .zoomOut:hover, .tox .tox-dialog__footer .tox-button:hover:last-child, .tox .tox-dialog__footer .tox-button--secondary:hover, .tox .tox-button-secondary:hover, .tox .tox-button:hover, [data-list] .page:hover,
+.table-list .page:hover {
   color: var(--phoenix-btn-hover-color);
   text-decoration: none;
   background-color: var(--phoenix-btn-hover-bg);
   border-color: var(--phoenix-btn-hover-border-color);
 }
 .btn-check:focus + .btn, .google-map-control-btn .btn-check:focus + .zoomIn,
-.google-map-control-btn .btn-check:focus + .zoomOut, .tox .tox-dialog__footer .btn-check:focus + .tox-button:last-child, .tox .tox-dialog__footer .btn-check:focus + .tox-button--secondary, .tox .btn-check:focus + .tox-button-secondary, .tox .btn-check:focus + .tox-button, [data-list] .btn-check:focus + .page, .table-list .btn-check:focus + .page, .btn:focus, .google-map-control-btn .zoomIn:focus,
-.google-map-control-btn .zoomOut:focus, .tox .tox-dialog__footer .tox-button:focus:last-child, .tox .tox-dialog__footer .tox-button--secondary:focus, .tox .tox-button-secondary:focus, .tox .tox-button:focus, [data-list] .page:focus, .table-list .page:focus {
+.google-map-control-btn .btn-check:focus + .zoomOut, .tox .tox-dialog__footer .btn-check:focus + .tox-button:last-child, .tox .tox-dialog__footer .btn-check:focus + .tox-button--secondary, .tox .btn-check:focus + .tox-button-secondary, .tox .btn-check:focus + .tox-button, [data-list] .btn-check:focus + .page,
+.table-list .btn-check:focus + .page, .btn:focus, .google-map-control-btn .zoomIn:focus,
+.google-map-control-btn .zoomOut:focus, .tox .tox-dialog__footer .tox-button:focus:last-child, .tox .tox-dialog__footer .tox-button--secondary:focus, .tox .tox-button-secondary:focus, .tox .tox-button:focus, [data-list] .page:focus,
+.table-list .page:focus {
   color: var(--phoenix-btn-hover-color);
   background-color: var(--phoenix-btn-hover-bg);
   border-color: var(--phoenix-btn-hover-border-color);
@@ -21079,11 +21232,16 @@ html:not(.dark) .d-light-none {
   box-shadow: var(--phoenix-btn-box-shadow), var(--phoenix-btn-focus-box-shadow);
 }
 .btn-check:checked + .btn, .google-map-control-btn .btn-check:checked + .zoomIn,
-.google-map-control-btn .btn-check:checked + .zoomOut, .tox .tox-dialog__footer .btn-check:checked + .tox-button:last-child, .tox .tox-dialog__footer .btn-check:checked + .tox-button--secondary, .tox .btn-check:checked + .tox-button-secondary, .tox .btn-check:checked + .tox-button, [data-list] .btn-check:checked + .page, .table-list .btn-check:checked + .page, .btn-check:active + .btn, .google-map-control-btn .btn-check:active + .zoomIn,
-.google-map-control-btn .btn-check:active + .zoomOut, .tox .tox-dialog__footer .btn-check:active + .tox-button:last-child, .tox .tox-dialog__footer .btn-check:active + .tox-button--secondary, .tox .btn-check:active + .tox-button-secondary, .tox .btn-check:active + .tox-button, [data-list] .btn-check:active + .page, .table-list .btn-check:active + .page, .btn:active, .google-map-control-btn .zoomIn:active,
-.google-map-control-btn .zoomOut:active, .tox .tox-dialog__footer .tox-button:active:last-child, .tox .tox-dialog__footer .tox-button--secondary:active, .tox .tox-button-secondary:active, .tox .tox-button:active, [data-list] .page:active, .table-list .page:active, .btn.active, .google-map-control-btn .active.zoomIn,
-.google-map-control-btn .active.zoomOut, .tox .tox-dialog__footer .active.tox-button:last-child, .tox .tox-dialog__footer .active.tox-button--secondary, .tox .active.tox-button-secondary, .tox .active.tox-button, [data-list] .active.page, .table-list .active.page, .btn.show, .google-map-control-btn .show.zoomIn,
-.google-map-control-btn .show.zoomOut, .tox .tox-dialog__footer .show.tox-button:last-child, .tox .tox-dialog__footer .show.tox-button--secondary, .tox .show.tox-button-secondary, .tox .show.tox-button, [data-list] .show.page, .table-list .show.page {
+.google-map-control-btn .btn-check:checked + .zoomOut, .tox .tox-dialog__footer .btn-check:checked + .tox-button:last-child, .tox .tox-dialog__footer .btn-check:checked + .tox-button--secondary, .tox .btn-check:checked + .tox-button-secondary, .tox .btn-check:checked + .tox-button, [data-list] .btn-check:checked + .page,
+.table-list .btn-check:checked + .page, .btn-check:active + .btn, .google-map-control-btn .btn-check:active + .zoomIn,
+.google-map-control-btn .btn-check:active + .zoomOut, .tox .tox-dialog__footer .btn-check:active + .tox-button:last-child, .tox .tox-dialog__footer .btn-check:active + .tox-button--secondary, .tox .btn-check:active + .tox-button-secondary, .tox .btn-check:active + .tox-button, [data-list] .btn-check:active + .page,
+.table-list .btn-check:active + .page, .btn:active, .google-map-control-btn .zoomIn:active,
+.google-map-control-btn .zoomOut:active, .tox .tox-dialog__footer .tox-button:active:last-child, .tox .tox-dialog__footer .tox-button--secondary:active, .tox .tox-button-secondary:active, .tox .tox-button:active, [data-list] .page:active,
+.table-list .page:active, .btn.active, .google-map-control-btn .active.zoomIn,
+.google-map-control-btn .active.zoomOut, .tox .tox-dialog__footer .active.tox-button:last-child, .tox .tox-dialog__footer .active.tox-button--secondary, .tox .active.tox-button-secondary, .tox .active.tox-button, [data-list] .active.page,
+.table-list .active.page, .btn.show, .google-map-control-btn .show.zoomIn,
+.google-map-control-btn .show.zoomOut, .tox .tox-dialog__footer .show.tox-button:last-child, .tox .tox-dialog__footer .show.tox-button--secondary, .tox .show.tox-button-secondary, .tox .show.tox-button, [data-list] .show.page,
+.table-list .show.page {
   color: var(--phoenix-btn-active-color);
   background-color: var(--phoenix-btn-active-bg);
   border-color: var(--phoenix-btn-active-border-color);
@@ -21091,19 +21249,42 @@ html:not(.dark) .d-light-none {
   box-shadow: var(--phoenix-btn-active-shadow);
 }
 .btn-check:checked + .btn:focus, .google-map-control-btn .btn-check:checked + .zoomIn:focus,
-.google-map-control-btn .btn-check:checked + .zoomOut:focus, .tox .tox-dialog__footer .btn-check:checked + .tox-button:focus:last-child, .tox .tox-dialog__footer .btn-check:checked + .tox-button--secondary:focus, .tox .btn-check:checked + .tox-button-secondary:focus, .tox .btn-check:checked + .tox-button:focus, [data-list] .btn-check:checked + .page:focus, .table-list .btn-check:checked + .page:focus, .btn-check:active + .btn:focus, .google-map-control-btn .btn-check:active + .zoomIn:focus,
-.google-map-control-btn .btn-check:active + .zoomOut:focus, .tox .tox-dialog__footer .btn-check:active + .tox-button:focus:last-child, .tox .tox-dialog__footer .btn-check:active + .tox-button--secondary:focus, .tox .btn-check:active + .tox-button-secondary:focus, .tox .btn-check:active + .tox-button:focus, [data-list] .btn-check:active + .page:focus, .table-list .btn-check:active + .page:focus, .btn:active:focus, .google-map-control-btn .zoomIn:active:focus,
-.google-map-control-btn .zoomOut:active:focus, .tox .tox-dialog__footer .tox-button--secondary:active:focus, .tox .tox-button-secondary:active:focus, .tox .tox-button:active:focus, [data-list] .page:active:focus, .table-list .page:active:focus, .btn.active:focus, .google-map-control-btn .active.zoomIn:focus,
-.google-map-control-btn .active.zoomOut:focus, .tox .tox-dialog__footer .active.tox-button--secondary:focus, .tox .active.tox-button-secondary:focus, .tox .active.tox-button:focus, [data-list] .active.page:focus, .table-list .active.page:focus, .btn.show:focus, .google-map-control-btn .show.zoomIn:focus,
-.google-map-control-btn .show.zoomOut:focus, .tox .tox-dialog__footer .show.tox-button--secondary:focus, .tox .show.tox-button-secondary:focus, .tox .show.tox-button:focus, [data-list] .show.page:focus, .table-list .show.page:focus {
+.google-map-control-btn .btn-check:checked + .zoomOut:focus, .tox .tox-dialog__footer .btn-check:checked + .tox-button:focus:last-child, .tox .tox-dialog__footer .btn-check:checked + .tox-button--secondary:focus, .tox .btn-check:checked + .tox-button-secondary:focus, .tox .btn-check:checked + .tox-button:focus, [data-list] .btn-check:checked + .page:focus,
+.table-list .btn-check:checked + .page:focus, .btn-check:active + .btn:focus, .google-map-control-btn .btn-check:active + .zoomIn:focus,
+.google-map-control-btn .btn-check:active + .zoomOut:focus, .tox .tox-dialog__footer .btn-check:active + .tox-button:focus:last-child, .tox .tox-dialog__footer .btn-check:active + .tox-button--secondary:focus, .tox .btn-check:active + .tox-button-secondary:focus, .tox .btn-check:active + .tox-button:focus, [data-list] .btn-check:active + .page:focus,
+.table-list .btn-check:active + .page:focus, .btn:active:focus, .google-map-control-btn .zoomIn:active:focus,
+.google-map-control-btn .zoomOut:active:focus, .tox .tox-dialog__footer .tox-button--secondary:active:focus, .tox .tox-button-secondary:active:focus, .tox .tox-button:active:focus, [data-list] .page:active:focus,
+.table-list .page:active:focus, .btn.active:focus, .google-map-control-btn .active.zoomIn:focus,
+.google-map-control-btn .active.zoomOut:focus, .tox .tox-dialog__footer .active.tox-button--secondary:focus, .tox .active.tox-button-secondary:focus, .tox .active.tox-button:focus, [data-list] .active.page:focus,
+.table-list .active.page:focus, .btn.show:focus, .google-map-control-btn .show.zoomIn:focus,
+.google-map-control-btn .show.zoomOut:focus, .tox .tox-dialog__footer .show.tox-button--secondary:focus, .tox .show.tox-button-secondary:focus, .tox .show.tox-button:focus, [data-list] .show.page:focus,
+.table-list .show.page:focus {
   -webkit-box-shadow: var(--phoenix-btn-active-shadow), var(--phoenix-btn-focus-box-shadow);
   box-shadow: var(--phoenix-btn-active-shadow), var(--phoenix-btn-focus-box-shadow);
 }
 .btn:disabled, .google-map-control-btn .zoomIn:disabled,
-.google-map-control-btn .zoomOut:disabled, .tox .tox-dialog__footer .tox-button:disabled:last-child, .tox .tox-dialog__footer .tox-button--secondary:disabled, .tox .tox-button-secondary:disabled, .tox .tox-button:disabled, [data-list] .page:disabled, .table-list .page:disabled, .btn.disabled, .google-map-control-btn .disabled.zoomIn,
-.google-map-control-btn .disabled.zoomOut, .tox .tox-dialog__footer .disabled.tox-button:last-child, .tox .tox-dialog__footer .disabled.tox-button--secondary, .tox .disabled.tox-button-secondary, .tox .disabled.tox-button, [data-list] .disabled.page, .table-list .disabled.page, fieldset:disabled .btn, fieldset:disabled .google-map-control-btn .zoomIn, .google-map-control-btn fieldset:disabled .zoomIn,
+.google-map-control-btn .zoomOut:disabled, .tox .tox-dialog__footer .tox-button:disabled:last-child, .tox .tox-dialog__footer .tox-button--secondary:disabled, .tox .tox-button-secondary:disabled, .tox .tox-button:disabled, [data-list] .page:disabled,
+.table-list .page:disabled, .btn.disabled, .google-map-control-btn .disabled.zoomIn,
+.google-map-control-btn .disabled.zoomOut, .tox .tox-dialog__footer .disabled.tox-button:last-child, .tox .tox-dialog__footer .disabled.tox-button--secondary, .tox .disabled.tox-button-secondary, .tox .disabled.tox-button, [data-list] li.disabled button.btn, [data-list] li.disabled .google-map-control-btn button.zoomIn, .google-map-control-btn [data-list] li.disabled button.zoomIn,
+[data-list] li.disabled .google-map-control-btn button.zoomOut,
+.google-map-control-btn [data-list] li.disabled button.zoomOut, [data-list] li.disabled .tox .tox-dialog__footer button.tox-button--secondary, .tox .tox-dialog__footer [data-list] li.disabled button.tox-button--secondary, [data-list] li.disabled .tox button.tox-button-secondary, .tox [data-list] li.disabled button.tox-button-secondary, [data-list] li.disabled .tox button.tox-button, .tox [data-list] li.disabled button.tox-button,
+.table-list li.disabled button.btn,
+.table-list li.disabled .google-map-control-btn button.zoomIn,
+.google-map-control-btn .table-list li.disabled button.zoomIn,
+.table-list li.disabled .google-map-control-btn button.zoomOut,
+.google-map-control-btn .table-list li.disabled button.zoomOut,
+.table-list li.disabled .tox .tox-dialog__footer button.tox-button--secondary,
+.tox .tox-dialog__footer .table-list li.disabled button.tox-button--secondary,
+.table-list li.disabled .tox button.tox-button-secondary,
+.tox .table-list li.disabled button.tox-button-secondary,
+.table-list li.disabled .tox button.tox-button,
+.tox .table-list li.disabled button.tox-button, [data-list] .disabled.page, [data-list] li.disabled button.page,
+.table-list .disabled.page,
+.table-list li.disabled button.page, fieldset:disabled .btn, fieldset:disabled .google-map-control-btn .zoomIn, .google-map-control-btn fieldset:disabled .zoomIn,
 fieldset:disabled .google-map-control-btn .zoomOut,
-.google-map-control-btn fieldset:disabled .zoomOut, fieldset:disabled .tox .tox-dialog__footer .tox-button:last-child, .tox .tox-dialog__footer fieldset:disabled .tox-button:last-child, fieldset:disabled .tox .tox-dialog__footer .tox-button--secondary, .tox .tox-dialog__footer fieldset:disabled .tox-button--secondary, fieldset:disabled .tox .tox-button-secondary, .tox fieldset:disabled .tox-button-secondary, fieldset:disabled .tox .tox-button, .tox fieldset:disabled .tox-button, fieldset:disabled [data-list] .page, [data-list] fieldset:disabled .page, fieldset:disabled .table-list .page, .table-list fieldset:disabled .page {
+.google-map-control-btn fieldset:disabled .zoomOut, fieldset:disabled .tox .tox-dialog__footer .tox-button:last-child, .tox .tox-dialog__footer fieldset:disabled .tox-button:last-child, fieldset:disabled .tox .tox-dialog__footer .tox-button--secondary, .tox .tox-dialog__footer fieldset:disabled .tox-button--secondary, fieldset:disabled .tox .tox-button-secondary, .tox fieldset:disabled .tox-button-secondary, fieldset:disabled .tox .tox-button, .tox fieldset:disabled .tox-button, fieldset:disabled [data-list] .page, [data-list] fieldset:disabled .page,
+fieldset:disabled .table-list .page,
+.table-list fieldset:disabled .page {
   color: var(--phoenix-btn-disabled-color);
   pointer-events: none;
   background-color: var(--phoenix-btn-disabled-bg);
@@ -21636,7 +21817,8 @@ fieldset:disabled .google-map-control-btn .zoomOut,
 }
 
 .btn-lg, .btn-group-lg > .btn, .google-map-control-btn .btn-group-lg > .zoomIn,
-.google-map-control-btn .btn-group-lg > .zoomOut, .tox .tox-dialog__footer .btn-group-lg > .tox-button:last-child, .tox .tox-dialog__footer .btn-group-lg > .tox-button--secondary, .tox .btn-group-lg > .tox-button-secondary, .tox .btn-group-lg > .tox-button, [data-list] .btn-group-lg > .page, .table-list .btn-group-lg > .page {
+.google-map-control-btn .btn-group-lg > .zoomOut, .tox .tox-dialog__footer .btn-group-lg > .tox-button:last-child, .tox .tox-dialog__footer .btn-group-lg > .tox-button--secondary, .tox .btn-group-lg > .tox-button-secondary, .tox .btn-group-lg > .tox-button, [data-list] .btn-group-lg > .page,
+.table-list .btn-group-lg > .page {
   --phoenix-btn-padding-y: 0.875rem;
   --phoenix-btn-padding-x: 1.5rem;
   --phoenix-btn-font-size: 1rem;
@@ -21644,7 +21826,8 @@ fieldset:disabled .google-map-control-btn .zoomOut,
 }
 
 .btn-sm, .btn-group-sm > .btn, .google-map-control-btn .btn-group-sm > .zoomIn,
-.google-map-control-btn .btn-group-sm > .zoomOut, .tox .tox-dialog__footer .btn-group-sm > .tox-button:last-child, .tox .tox-dialog__footer .btn-group-sm > .tox-button--secondary, .tox .btn-group-sm > .tox-button-secondary, .tox .btn-group-sm > .tox-button, [data-list] .btn-group-sm > .page, .table-list .btn-group-sm > .page {
+.google-map-control-btn .btn-group-sm > .zoomOut, .tox .tox-dialog__footer .btn-group-sm > .tox-button:last-child, .tox .tox-dialog__footer .btn-group-sm > .tox-button--secondary, .tox .btn-group-sm > .tox-button-secondary, .tox .btn-group-sm > .tox-button, [data-list] .btn-group-sm > .page,
+.table-list .btn-group-sm > .page {
   --phoenix-btn-padding-y: 0.5rem;
   --phoenix-btn-padding-x: 1rem;
   --phoenix-btn-font-size: 0.8rem;
@@ -21704,6 +21887,16 @@ fieldset:disabled .google-map-control-btn .zoomOut,
   -ms-flex-align: center;
   align-items: center;
   border-radius: var(--phoenix-border-radius-pill);
+}
+
+.project-modal-btn {
+  --phoenix-bg-opacity: 0.64;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+.project-modal-btn:hover {
+  --phoenix-bg-opacity: 1;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -22090,6 +22283,51 @@ html {
   border-bottom: 1px solid var(--phoenix-primary) !important;
 }
 
+.faq-list li .fa-circle {
+  font-size: 6px;
+  margin-right: 1.25rem;
+  margin-top: 6px;
+  color: var(--phoenix-gray-400);
+}
+
+.faq-title-box {
+  top: 2rem;
+  width: 90%;
+}
+@media (min-width: 768px) {
+  .faq-title-box {
+    width: 75%;
+  }
+}
+@media (min-width: 1200px) {
+  .faq-title-box {
+    width: 55%;
+  }
+}
+
+.dark .subtask-checkbox, .dark .picmo__popupContainer.picmo__light .subtask-checkbox {
+  background-color: #141824;
+}
+.dark .subtask-checkbox:checked {
+  background-color: #3874ff;
+}
+
+/*-----------------------------------------------
+|   fontawesome stack icon border color
+-----------------------------------------------*/
+.stack-circle path {
+  stroke: var(--phoenix-body-bg);
+  stroke-width: 60;
+}
+
+/*-----------------------------------------------
+|   action dropdown btn
+-----------------------------------------------*/
+.action-btn {
+  min-height: 32px;
+  min-width: 45px;
+}
+
 .star-rating {
   background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTMiIHZpZXdCb3g9IjAgMCAxMiAxMyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEwLjc4MTMgNC4xNzkzTDcuODcyNjYgMy43NjA5NEw2LjU1NzgxIDEuMTExMzNDNi4zMzg2NyAwLjY1MzEyNSA1LjY2MTMzIDAuNjMzMjAzIDUuNDIyMjcgMS4xMTEzM0w0LjEyNzM0IDMuNzYwOTRMMS4xOTg4MyA0LjE3OTNDMC42ODA4NiA0LjI1ODk4IDAuNDgxNjQxIDQuODk2NDggMC44NjAxNTcgNS4yNzVMMi45NTE5NSA3LjMyNjk1TDIuNDUzOTEgMTAuMjE1NkMyLjM3NDIyIDEwLjczMzYgMi45MzIwMyAxMS4xMzIgMy4zOTAyMyAxMC44OTNMNiA5LjUxODM2TDguNTg5ODQgMTAuODkzQzkuMDQ4MDUgMTEuMTMyIDkuNjA1ODYgMTAuNzMzNiA5LjUyNjE3IDEwLjIxNTZMOS4wMjgxMyA3LjMyNjk1TDExLjExOTkgNS4yNzVDMTEuNDk4NCA0Ljg5NjQ4IDExLjI5OTIgNC4yNTg5OCAxMC43ODEzIDQuMTc5M1pNNy45OTIxOSA2Ljk4ODI4TDguNDcwMzEgOS43Mzc1TDYgOC40NDI1OEwzLjUwOTc3IDkuNzM3NUwzLjk4Nzg5IDYuOTg4MjhMMS45NzU3OCA1LjAzNTk0TDQuNzQ0OTIgNC42Mzc1TDYgMi4xMjczNEw3LjIzNTE2IDQuNjM3NUwxMC4wMDQzIDUuMDM1OTRMNy45OTIxOSA2Ljk4ODI4WiIgZmlsbD0iI0U1NzgwQiIvPgo8L3N2Zz4K") !important;
 }
@@ -22097,31 +22335,41 @@ html {
   background-image: url("../img/icons/star.svg") !important;
 }
 
-[data-list] .sort[data-sort], .table-list .sort[data-sort] {
+[data-list] .sort[data-sort],
+.table-list .sort[data-sort] {
   white-space: nowrap;
   cursor: pointer;
 }
-[data-list] .sort[data-sort]::after, .table-list .sort[data-sort]::after {
+[data-list] .sort[data-sort]::after,
+.table-list .sort[data-sort]::after {
   content: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNyIgaGVpZ2h0PSI5IiB2aWV3Qm94PSIwIDAgNyA5IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMy4xNDkgMC42NDY3NjhDMy4zNDM2NiAwLjQ1NDg4NSAzLjY1NjM0IDAuNDU0ODg1IDMuODUxIDAuNjQ2NzY4TDYuMTMxNTEgMi44OTQ2OUM2LjQ0OTk4IDMuMjA4NjIgNi4yMjc2OSAzLjc1MDc4IDUuNzgwNSAzLjc1MDc4SDEuMjE5NUMwLjc3MjMwNyAzLjc1MDc4IDAuNTUwMDE4IDMuMjA4NjIgMC44Njg0OTUgMi44OTQ2OUwzLjE0OSAwLjY0Njc2OFoiIGZpbGw9IiM2RTc4OTEiLz4KPHBhdGggZD0iTTMuMTQ5IDguMTU0MDFDMy4zNDM2NiA4LjM0NTkgMy42NTYzNCA4LjM0NTkgMy44NTEgOC4xNTQwMUw2LjEzMTUxIDUuOTA2MDlDNi40NDk5OCA1LjU5MjE2IDYuMjI3NjkgNS4wNSA1Ljc4MDUgNS4wNUgxLjIxOTVDMC43NzIzMDcgNS4wNSAwLjU1MDAxOCA1LjU5MjE2IDAuODY4NDk1IDUuOTA2MDlMMy4xNDkgOC4xNTQwMVoiIGZpbGw9IiM2RTc4OTEiLz4KPC9zdmc+Cg==");
   margin-left: 0.25rem;
 }
-[data-list] .sort[data-sort].asc::after, .table-list .sort[data-sort].asc::after {
+[data-list] .sort[data-sort].asc::after,
+.table-list .sort[data-sort].asc::after {
   content: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNyIgaGVpZ2h0PSI5IiB2aWV3Qm94PSIwIDAgNyA5IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMy4xNDkgOC4xNTQwMUMzLjM0MzY2IDguMzQ1OSAzLjY1NjM0IDguMzQ1OSAzLjg1MSA4LjE1NDAxTDYuMTMxNTEgNS45MDYwOUM2LjQ0OTk4IDUuNTkyMTYgNi4yMjc2OSA1LjA1IDUuNzgwNSA1LjA1SDEuMjE5NUMwLjc3MjMwNyA1LjA1IDAuNTUwMDE4IDUuNTkyMTYgMC44Njg0OTUgNS45MDYwOUwzLjE0OSA4LjE1NDAxWiIgZmlsbD0iIzZFNzg5MSIvPgo8L3N2Zz4K") !important;
   margin-top: -1px !important;
 }
-[data-list] .sort[data-sort].desc::after, .table-list .sort[data-sort].desc::after {
+[data-list] .sort[data-sort].desc::after,
+.table-list .sort[data-sort].desc::after {
   content: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNyIgaGVpZ2h0PSI5IiB2aWV3Qm94PSIwIDAgNyA5IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMy4xNDkgMC42NDY3NjhDMy4zNDM2NiAwLjQ1NDg4NSAzLjY1NjM0IDAuNDU0ODg1IDMuODUxIDAuNjQ2NzY4TDYuMTMxNTEgMi44OTQ2OUM2LjQ0OTk4IDMuMjA4NjIgNi4yMjc2OSAzLjc1MDc4IDUuNzgwNSAzLjc1MDc4SDEuMjE5NUMwLjc3MjMwNyAzLjc1MDc4IDAuNTUwMDE4IDMuMjA4NjIgMC44Njg0OTUgMi44OTQ2OUwzLjE0OSAwLjY0Njc2OFoiIGZpbGw9IiM2RTc4OTEiLz4KPC9zdmc+Cg==") !important;
 }
-[data-list] .page, .table-list .page {
+[data-list] .page,
+.table-list .page {
   padding: 0.5rem 0.75rem;
   color: var(--phoenix-gray-800);
   font-size: 0.64rem;
   margin-left: 0.25rem;
   margin-right: 0.25rem;
 }
-[data-list] li.active .page, .table-list li.active .page {
+[data-list] li.active .page,
+.table-list li.active .page {
   color: #fff;
   background-color: #3874ff;
+}
+[data-list] li.disabled button,
+.table-list li.disabled button {
+  border: 0;
 }
 
 .ios [data-list-pagination].btn-primary[disabled], .ios .tox [data-list-pagination][disabled].tox-button, .tox .ios [data-list-pagination][disabled].tox-button {
@@ -22437,7 +22685,9 @@ pre[class*=language-] {
 }
 .dropzone.dropzone-multiple .btn *, .dropzone.dropzone-multiple .google-map-control-btn .zoomIn *, .google-map-control-btn .dropzone.dropzone-multiple .zoomIn *,
 .dropzone.dropzone-multiple .google-map-control-btn .zoomOut *,
-.google-map-control-btn .dropzone.dropzone-multiple .zoomOut *, .dropzone.dropzone-multiple .tox .tox-dialog__footer .tox-button--secondary *, .tox .tox-dialog__footer .dropzone.dropzone-multiple .tox-button--secondary *, .dropzone.dropzone-multiple .tox .tox-button-secondary *, .tox .dropzone.dropzone-multiple .tox-button-secondary *, .dropzone.dropzone-multiple .tox .tox-button *, .tox .dropzone.dropzone-multiple .tox-button *, .dropzone.dropzone-multiple [data-list] .page *, [data-list] .dropzone.dropzone-multiple .page *, .dropzone.dropzone-multiple .table-list .page *, .table-list .dropzone.dropzone-multiple .page * {
+.google-map-control-btn .dropzone.dropzone-multiple .zoomOut *, .dropzone.dropzone-multiple .tox .tox-dialog__footer .tox-button--secondary *, .tox .tox-dialog__footer .dropzone.dropzone-multiple .tox-button--secondary *, .dropzone.dropzone-multiple .tox .tox-button-secondary *, .tox .dropzone.dropzone-multiple .tox-button-secondary *, .dropzone.dropzone-multiple .tox .tox-button *, .tox .dropzone.dropzone-multiple .tox-button *, .dropzone.dropzone-multiple [data-list] .page *, [data-list] .dropzone.dropzone-multiple .page *,
+.dropzone.dropzone-multiple .table-list .page *,
+.table-list .dropzone.dropzone-multiple .page * {
   cursor: pointer;
 }
 .dropzone.dropzone-multiple .media:first-child {
@@ -22524,10 +22774,25 @@ pre[class*=language-] {
 .choices .choices__input--cloned {
   padding: 0;
   font-size: 0.8rem;
-  color: var(--phoenix--input-color);
+  color: var(--phoenix-input-color);
   background-color: var(--phoenix-input-bg) !important;
   vertical-align: top;
   margin-bottom: 0;
+}
+.choices .choices__input--cloned::-webkit-input-placeholder {
+  color: var(--phoenix-input-color);
+}
+.choices .choices__input--cloned::-moz-placeholder {
+  color: var(--phoenix-input-color);
+}
+.choices .choices__input--cloned:-ms-input-placeholder {
+  color: var(--phoenix-input-color);
+}
+.choices .choices__input--cloned::-ms-input-placeholder {
+  color: var(--phoenix-input-color);
+}
+.choices .choices__input--cloned::placeholder {
+  color: var(--phoenix-input-color);
 }
 .choices .choices__list--dropdown {
   border: 1px solid var(--phoenix-gray-200) !important;
@@ -22660,9 +22925,16 @@ pre[class*=language-] {
 .tox.tox-tinymce {
   border: 0;
   border-radius: 0;
+  overflow: unset !important;
+}
+.tox .tox-editor-container {
+  overflow: unset !important;
 }
 .tox .tox-edit-area {
   font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+.tox .tox-toolbar--scrolling {
+  background-color: transparent !important;
 }
 .tox:not([dir=rtl]) .tox-toolbar__group:not(:last-of-type) {
   border: none !important;
@@ -22690,7 +22962,6 @@ pre[class*=language-] {
 .tox .tox-sidebar-wrap {
   overflow: hidden;
   border: 1px solid var(--phoenix-input-border-color);
-  overflow: hidden;
   border-radius: 0.375rem;
 }
 .tox .tox-menu,
@@ -22727,8 +22998,8 @@ pre[class*=language-] {
 }
 .tox .tox-textfield:focus {
   border-color: #3874ff !important;
-  -webkit-box-shadow: 0 0 0 0.25rem rgba(56, 116, 255, 0.25) !important;
-  box-shadow: 0 0 0 0.25rem rgba(56, 116, 255, 0.25) !important;
+  -webkit-box-shadow: inset 0 0 0 30px var(--phoenix-input-bg), 0 0 0 0.25rem rgba(56, 116, 255, 0.25) !important;
+  box-shadow: inset 0 0 0 30px var(--phoenix-input-bg), 0 0 0 0.25rem rgba(56, 116, 255, 0.25) !important;
 }
 .tox .tox-listbox {
   background-color: var(--phoenix-input-bg) !important;
@@ -22772,6 +23043,10 @@ pre[class*=language-] {
   background-color: var(--phoenix-gray-100) !important;
   background-image: none !important;
 }
+.tox .tox-dialog-wrap__backdrop {
+  background-color: #000000 !important;
+  opacity: 0.5;
+}
 
 .tox .tox-tbtn {
   height: 24px !important;
@@ -22801,6 +23076,12 @@ pre[class*=language-] {
   background-color: var(--phoenix-tinymce-bg) !important;
 }
 
+.editor-focused {
+  -webkit-box-shadow: inset 0 0 0 30px var(--phoenix-input-bg), 0 0 0 0.25rem rgba(56, 116, 255, 0.25) !important;
+  box-shadow: inset 0 0 0 30px var(--phoenix-input-bg), 0 0 0 0.25rem rgba(56, 116, 255, 0.25) !important;
+  border-color: #3874ff !important;
+}
+
 /* -------------------------------------------------------------------------- */
 /*                                  Flatpickr                                 */
 /* -------------------------------------------------------------------------- */
@@ -22819,9 +23100,9 @@ pre[class*=language-] {
   padding-left: 2.25rem;
 }
 .flatpickr-input-container.flatpickr-input-sm .flatpickr-icon {
-  -webkit-transform: translateY(-13px);
-  -ms-transform: translateY(-13px);
-  transform: translateY(-13px);
+  -webkit-transform: translateY(-12px);
+  -ms-transform: translateY(-12px);
+  transform: translateY(-12px);
 }
 
 .flatpickr-calendar {
@@ -23046,6 +23327,7 @@ span.flatpickr-weekday,
   letter-spacing: 0.02em;
   border: 1px solid transparent;
   padding: 0.5rem 1rem;
+  background-color: transparent;
 }
 .isotope-nav.active {
   color: var(--phoenix-primary);
@@ -23418,7 +23700,7 @@ html[dir=rtl] .googlemap .gm-style-iw.gm-style-iw-c button[title=Close] {
   border-radius: 0.375rem !important;
   margin-top: 0;
   margin-bottom: 0.25rem !important;
-  padding: 0.25rem 0.5rem !important;
+  padding: 0.5rem 0.5rem !important;
   font-size: 0.64rem;
   border: 1px solid var(--phoenix-gray-300) !important;
 }
@@ -23453,6 +23735,13 @@ html[dir=rtl] .googlemap .gm-style-iw.gm-style-iw-c button[title=Close] {
 .fc .fc-daygrid-event .fc-event-time,
 .fc .fc-daygrid-event .fc-event-title {
   font-weight: 600 !important;
+  line-height: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 .fc .fc-event:focus {
   -webkit-box-shadow: none;
@@ -23492,6 +23781,7 @@ html[dir=rtl] .googlemap .gm-style-iw.gm-style-iw-c button[title=Close] {
   box-shadow: 0px 2px 4px -2px rgba(36, 40, 46, 0.08);
   background-color: var(--phoenix-white);
   z-index: 1000;
+  border-radius: var(--phoenix-border-radius);
 }
 .fc .fc-popover .fc-popover-title {
   font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -23499,16 +23789,22 @@ html[dir=rtl] .googlemap .gm-style-iw.gm-style-iw-c button[title=Close] {
 .fc .fc-popover .fc-daygrid-event {
   margin-left: 0 !important;
   margin-right: 0 !important;
-  margin-bottom: 2px !important;
+  margin-bottom: 6px !important;
 }
 .fc .fc-popover-header {
-  padding-left: 0.625rem;
-  padding-right: 0.625rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
   font-size: 0.875rem;
   font-weight: 600;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
   background: var(--phoenix-popover-header-bg);
+}
+.fc .fc-more-popover .fc-popover-body {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
 }
 .fc .fc-daygrid-more-link {
   display: block;
@@ -23837,20 +24133,14 @@ html[dir=rtl] .googlemap .gm-style-iw.gm-style-iw-c button[title=Close] {
   overflow: hidden;
 }
 
-.safari .fc-dayGridMonth-view .fc-daygrid-day {
-  position: relative;
-}
-.safari .fc-dayGridMonth-view .fc-daygrid-day .fc-daygrid-day-frame {
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-}
-
 .fc .fc-timegrid-axis-frame,
 .fc-list-event-time {
   text-transform: capitalize;
+}
+
+[data-fc-view].active-view {
+  color: var(--phoenix-btn-hover-color);
+  background-color: var(--phoenix-btn-hover-bg);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -24101,7 +24391,7 @@ html[dir=rtl] .googlemap .gm-style-iw.gm-style-iw-c button[title=Close] {
 /* -------------------------------------------------------------------------- */
 /*                                  Position                                  */
 /* -------------------------------------------------------------------------- */
-.container,
+.container, .product-filter-container,
 .container-fluid,
 .container-small-xl,
 .container-small-lg,
@@ -24673,8 +24963,14 @@ h3,
   border-top-left-radius: 0.375rem;
   border-top-right-radius: 0.375rem;
 }
-.nav-tabs .nav-link.disabled,
-.nav-underline .nav-link.disabled {
+.nav-tabs .nav-link.disabled, .nav-tabs [data-list] li.disabled button.nav-link, [data-list] li.disabled .nav-tabs button.nav-link,
+.nav-tabs .table-list li.disabled button.nav-link,
+.table-list li.disabled .nav-tabs button.nav-link,
+.nav-underline .nav-link.disabled,
+.nav-underline [data-list] li.disabled button.nav-link,
+[data-list] li.disabled .nav-underline button.nav-link,
+.nav-underline .table-list li.disabled button.nav-link,
+.table-list li.disabled .nav-underline button.nav-link {
   color: var(--phoenix-black);
   background-color: transparent;
   border-color: transparent;
@@ -24754,8 +25050,60 @@ h3,
   font-weight: 700;
   font-size: 0.8rem;
 }
+.nav-links .nav-link:hover span:first-child {
+  text-decoration: underline !important;
+}
 .nav-links .nav-link.active {
   color: var(--phoenix-gray-1100);
+}
+
+.faq-category-tab {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  position: sticky;
+  top: var(--phoenix-navbar-top-height);
+  background-color: var(--phoenix-gray-soft);
+  z-index: 1020;
+}
+.faq-category-tab .nav-item {
+  -ms-flex-preferred-size: 50%;
+  flex-basis: 50%;
+}
+.faq-category-tab .nav-link {
+  color: var(--phoenix-gray-400);
+  width: 100%;
+}
+.faq-category-tab .nav-link.active {
+  color: var(--phoenix-primary);
+  border-bottom: 3px solid var(--phoenix-primary);
+}
+
+.faq-subcategory-tab .nav-link {
+  border: 1px solid var(--phoenix-gray-200);
+}
+.faq-subcategory-tab .nav-link:hover {
+  border: 1px solid var(--phoenix-gray-400);
+}
+.faq-subcategory-tab .nav-link.active {
+  border: 1px solid var(--phoenix-primary) !important;
+}
+.faq-subcategory-tab .nav-link.active .category-icon {
+  color: var(--phoenix-primary) !important;
+}
+
+.faq-subcategory-content {
+  position: sticky;
+  top: 4rem;
+}
+.faq-subcategory-content .empty-header {
+  height: 60px;
+  position: sticky;
+  top: var(--phoenix-navbar-top-height);
+  background-color: var(--phoenix-gray-soft);
 }
 
 .page-item {
@@ -24769,7 +25117,8 @@ h3,
   border-radius: 0.375rem;
   line-height: 1.2;
 }
-.page-link.disabled {
+.page-link.disabled, [data-list] li.disabled button.page-link,
+.table-list li.disabled button.page-link {
   color: var(--phoenix-gray-400);
 }
 
@@ -24866,10 +25215,6 @@ h3,
   font-weight: 700;
   font-size: 0.64rem;
   text-transform: uppercase;
-}
-.form-floating .form-control {
-  -webkit-box-shadow: none;
-  box-shadow: none;
 }
 .form-floating .form-control-underlined + label {
   padding: 0;
@@ -25211,18 +25556,24 @@ html:not(.navbar-vertical-collapsed) .navbar-vertical.navbar-expand-xs .navbar-v
   -o-transition: width 0.2s ease;
   transition: width 0.2s ease;
 }
-.navbar-vertical .navbar-vertical-footer .btn, .navbar-vertical .navbar-vertical-footer [data-list] .page, [data-list] .navbar-vertical .navbar-vertical-footer .page, .navbar-vertical .navbar-vertical-footer .table-list .page, .table-list .navbar-vertical .navbar-vertical-footer .page, .navbar-vertical .navbar-vertical-footer .tox .tox-button, .tox .navbar-vertical .navbar-vertical-footer .tox-button, .navbar-vertical .navbar-vertical-footer .tox .tox-button-secondary, .tox .navbar-vertical .navbar-vertical-footer .tox-button-secondary, .navbar-vertical .navbar-vertical-footer .tox .tox-dialog__footer .tox-button--secondary, .tox .tox-dialog__footer .navbar-vertical .navbar-vertical-footer .tox-button--secondary, .navbar-vertical .navbar-vertical-footer .google-map-control-btn .zoomIn, .google-map-control-btn .navbar-vertical .navbar-vertical-footer .zoomIn,
+.navbar-vertical .navbar-vertical-footer .btn, .navbar-vertical .navbar-vertical-footer [data-list] .page, [data-list] .navbar-vertical .navbar-vertical-footer .page,
+.navbar-vertical .navbar-vertical-footer .table-list .page,
+.table-list .navbar-vertical .navbar-vertical-footer .page, .navbar-vertical .navbar-vertical-footer .tox .tox-button, .tox .navbar-vertical .navbar-vertical-footer .tox-button, .navbar-vertical .navbar-vertical-footer .tox .tox-button-secondary, .tox .navbar-vertical .navbar-vertical-footer .tox-button-secondary, .navbar-vertical .navbar-vertical-footer .tox .tox-dialog__footer .tox-button--secondary, .tox .tox-dialog__footer .navbar-vertical .navbar-vertical-footer .tox-button--secondary, .navbar-vertical .navbar-vertical-footer .google-map-control-btn .zoomIn, .google-map-control-btn .navbar-vertical .navbar-vertical-footer .zoomIn,
 .navbar-vertical .navbar-vertical-footer .google-map-control-btn .zoomOut,
 .google-map-control-btn .navbar-vertical .navbar-vertical-footer .zoomOut {
   color: var(--phoenix-navbar-vertical-link-color);
   text-decoration: none;
 }
-.navbar-vertical .navbar-vertical-footer .btn .navbar-vertical-footer-icon, .navbar-vertical .navbar-vertical-footer [data-list] .page .navbar-vertical-footer-icon, [data-list] .navbar-vertical .navbar-vertical-footer .page .navbar-vertical-footer-icon, .navbar-vertical .navbar-vertical-footer .table-list .page .navbar-vertical-footer-icon, .table-list .navbar-vertical .navbar-vertical-footer .page .navbar-vertical-footer-icon, .navbar-vertical .navbar-vertical-footer .tox .tox-button .navbar-vertical-footer-icon, .tox .navbar-vertical .navbar-vertical-footer .tox-button .navbar-vertical-footer-icon, .navbar-vertical .navbar-vertical-footer .tox .tox-button-secondary .navbar-vertical-footer-icon, .tox .navbar-vertical .navbar-vertical-footer .tox-button-secondary .navbar-vertical-footer-icon, .navbar-vertical .navbar-vertical-footer .tox .tox-dialog__footer .tox-button--secondary .navbar-vertical-footer-icon, .tox .tox-dialog__footer .navbar-vertical .navbar-vertical-footer .tox-button--secondary .navbar-vertical-footer-icon, .navbar-vertical .navbar-vertical-footer .google-map-control-btn .zoomIn .navbar-vertical-footer-icon, .google-map-control-btn .navbar-vertical .navbar-vertical-footer .zoomIn .navbar-vertical-footer-icon,
+.navbar-vertical .navbar-vertical-footer .btn .navbar-vertical-footer-icon, .navbar-vertical .navbar-vertical-footer [data-list] .page .navbar-vertical-footer-icon, [data-list] .navbar-vertical .navbar-vertical-footer .page .navbar-vertical-footer-icon,
+.navbar-vertical .navbar-vertical-footer .table-list .page .navbar-vertical-footer-icon,
+.table-list .navbar-vertical .navbar-vertical-footer .page .navbar-vertical-footer-icon, .navbar-vertical .navbar-vertical-footer .tox .tox-button .navbar-vertical-footer-icon, .tox .navbar-vertical .navbar-vertical-footer .tox-button .navbar-vertical-footer-icon, .navbar-vertical .navbar-vertical-footer .tox .tox-button-secondary .navbar-vertical-footer-icon, .tox .navbar-vertical .navbar-vertical-footer .tox-button-secondary .navbar-vertical-footer-icon, .navbar-vertical .navbar-vertical-footer .tox .tox-dialog__footer .tox-button--secondary .navbar-vertical-footer-icon, .tox .tox-dialog__footer .navbar-vertical .navbar-vertical-footer .tox-button--secondary .navbar-vertical-footer-icon, .navbar-vertical .navbar-vertical-footer .google-map-control-btn .zoomIn .navbar-vertical-footer-icon, .google-map-control-btn .navbar-vertical .navbar-vertical-footer .zoomIn .navbar-vertical-footer-icon,
 .navbar-vertical .navbar-vertical-footer .google-map-control-btn .zoomOut .navbar-vertical-footer-icon,
 .google-map-control-btn .navbar-vertical .navbar-vertical-footer .zoomOut .navbar-vertical-footer-icon {
   margin-right: 0.6125rem;
 }
-.navbar-vertical .navbar-vertical-footer .btn:hover, .navbar-vertical .navbar-vertical-footer [data-list] .page:hover, [data-list] .navbar-vertical .navbar-vertical-footer .page:hover, .navbar-vertical .navbar-vertical-footer .table-list .page:hover, .table-list .navbar-vertical .navbar-vertical-footer .page:hover, .navbar-vertical .navbar-vertical-footer .tox .tox-button:hover, .tox .navbar-vertical .navbar-vertical-footer .tox-button:hover, .navbar-vertical .navbar-vertical-footer .tox .tox-button-secondary:hover, .tox .navbar-vertical .navbar-vertical-footer .tox-button-secondary:hover, .navbar-vertical .navbar-vertical-footer .tox .tox-dialog__footer .tox-button--secondary:hover, .tox .tox-dialog__footer .navbar-vertical .navbar-vertical-footer .tox-button--secondary:hover, .navbar-vertical .navbar-vertical-footer .google-map-control-btn .zoomIn:hover, .google-map-control-btn .navbar-vertical .navbar-vertical-footer .zoomIn:hover,
+.navbar-vertical .navbar-vertical-footer .btn:hover, .navbar-vertical .navbar-vertical-footer [data-list] .page:hover, [data-list] .navbar-vertical .navbar-vertical-footer .page:hover,
+.navbar-vertical .navbar-vertical-footer .table-list .page:hover,
+.table-list .navbar-vertical .navbar-vertical-footer .page:hover, .navbar-vertical .navbar-vertical-footer .tox .tox-button:hover, .tox .navbar-vertical .navbar-vertical-footer .tox-button:hover, .navbar-vertical .navbar-vertical-footer .tox .tox-button-secondary:hover, .tox .navbar-vertical .navbar-vertical-footer .tox-button-secondary:hover, .navbar-vertical .navbar-vertical-footer .tox .tox-dialog__footer .tox-button--secondary:hover, .tox .tox-dialog__footer .navbar-vertical .navbar-vertical-footer .tox-button--secondary:hover, .navbar-vertical .navbar-vertical-footer .google-map-control-btn .zoomIn:hover, .google-map-control-btn .navbar-vertical .navbar-vertical-footer .zoomIn:hover,
 .navbar-vertical .navbar-vertical-footer .google-map-control-btn .zoomOut:hover,
 .google-map-control-btn .navbar-vertical .navbar-vertical-footer .zoomOut:hover {
   color: var(--phoenix-navbar-vertical-link-hover-color);
@@ -26785,7 +27136,7 @@ html:not(.navbar-vertical-collapsed) .navbar-vertical.navbar-expand-xs .navbar-v
   background: var(--phoenix-navbar-top-bg-color);
   min-height: var(--phoenix-navbar-top-height);
   color: var(--phoenix-nav-link-color);
-  padding: 0 1.5rem 0 1.5rem;
+  padding: 0 1.5rem;
   border-bottom: 1px solid var(--phoenix-navbar-vertical-border-color);
 }
 .navbar-top .dropdown-menu {
@@ -28674,6 +29025,17 @@ html:not(.navbar-vertical-collapsed) .navbar-vertical.navbar-expand-xs .navbar-v
   color: var(--phoenix-black);
 }
 
+:root:not(.dark) .navbar-darker .search-box .btn-close {
+  background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat;
+}
+:root:not(.dark) .navbar-darker .search-box .search-input:focus {
+  border-color: #373e53;
+}
+
+.dark .btn-close, .dark .picmo__popupContainer.picmo__light .btn-close {
+  background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat;
+}
+
 /*-----------------------------------------------
 |   Search box
 -----------------------------------------------*/
@@ -29048,27 +29410,21 @@ html:not(.navbar-vertical-collapsed) .navbar-vertical.navbar-expand-xs .navbar-v
   -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
 }
-.avatar-group .dropdown-toggle:not(:first-child) .avatar-s,
-.avatar-group .dropdown-toggle:not(:first-child) .avatar-m,
-.avatar-group .dropdown-toggle:not(:first-child) .avatar-l,
-.avatar-group .dropdown-toggle:not(:first-child) .avatar-xl,
-.avatar-group .dropdown-toggle:not(:first-child) .avatar-2xl {
-  margin-left: -0.5rem;
-}
 .avatar-group .avatar-s:not(:first-child),
 .avatar-group .avatar-m:not(:first-child),
 .avatar-group .avatar-l:not(:first-child),
 .avatar-group .avatar-xl:not(:first-child),
-.avatar-group .avatar-2xl:not(:first-child) {
+.avatar-group .avatar-2xl:not(:first-child),
+.avatar-group .dropdown-toggle:not(:first-child) {
   margin-left: -0.5rem;
 }
-.avatar-group .avatar-3xl:not(:first-child) {
+.avatar-group .avatar-3x:not(:first-child) {
   margin-left: -1rem;
 }
-.avatar-group .avatar-4xl:not(:first-child) {
+.avatar-group .avatar-4x:not(:first-child) {
   margin-left: -1.5rem;
 }
-.avatar-group .avatar-5xl:not(:first-child) {
+.avatar-group .avatar-5x:not(:first-child) {
   margin-left: -2rem;
 }
 .avatar-group-dense .avatar-s:not(:first-child) {
@@ -29330,7 +29686,9 @@ pre[class*=language-] {
   margin-right: 0.5rem;
 }
 
-.doc-tab-nav a.btn, .doc-tab-nav [data-list] a.page, [data-list] .doc-tab-nav a.page, .doc-tab-nav .table-list a.page, .table-list .doc-tab-nav a.page, .doc-tab-nav .tox a.tox-button, .tox .doc-tab-nav a.tox-button, .doc-tab-nav .tox a.tox-button-secondary, .tox .doc-tab-nav a.tox-button-secondary, .doc-tab-nav .tox .tox-dialog__footer a.tox-button--secondary, .tox .tox-dialog__footer .doc-tab-nav a.tox-button--secondary, .doc-tab-nav .tox .tox-dialog__footer a.tox-button:last-child, .tox .tox-dialog__footer .doc-tab-nav a.tox-button:last-child, .doc-tab-nav .google-map-control-btn a.zoomIn, .google-map-control-btn .doc-tab-nav a.zoomIn,
+.doc-tab-nav a.btn, .doc-tab-nav [data-list] a.page, [data-list] .doc-tab-nav a.page,
+.doc-tab-nav .table-list a.page,
+.table-list .doc-tab-nav a.page, .doc-tab-nav .tox a.tox-button, .tox .doc-tab-nav a.tox-button, .doc-tab-nav .tox a.tox-button-secondary, .tox .doc-tab-nav a.tox-button-secondary, .doc-tab-nav .tox .tox-dialog__footer a.tox-button--secondary, .tox .tox-dialog__footer .doc-tab-nav a.tox-button--secondary, .doc-tab-nav .tox .tox-dialog__footer a.tox-button:last-child, .tox .tox-dialog__footer .doc-tab-nav a.tox-button:last-child, .doc-tab-nav .google-map-control-btn a.zoomIn, .google-map-control-btn .doc-tab-nav a.zoomIn,
 .doc-tab-nav .google-map-control-btn a.zoomOut,
 .google-map-control-btn .doc-tab-nav a.zoomOut {
   width: 8.4375rem;
@@ -29436,9 +29794,13 @@ a[href].bg-200:hover, a[href].bg-200:focus {
   -webkit-animation: fade 0.15s ease-in-out;
   animation: fade 0.15s ease-in-out;
 }
-.hover-actions-trigger:hover .hover-actions.btn, .hover-actions-trigger:hover [data-list] .hover-actions.page, [data-list] .hover-actions-trigger:hover .hover-actions.page, .hover-actions-trigger:hover .table-list .hover-actions.page, .table-list .hover-actions-trigger:hover .hover-actions.page, .hover-actions-trigger:hover .tox .hover-actions.tox-button, .tox .hover-actions-trigger:hover .hover-actions.tox-button, .hover-actions-trigger:hover .tox .hover-actions.tox-button-secondary, .tox .hover-actions-trigger:hover .hover-actions.tox-button-secondary, .hover-actions-trigger:hover .tox .tox-dialog__footer .hover-actions.tox-button--secondary, .tox .tox-dialog__footer .hover-actions-trigger:hover .hover-actions.tox-button--secondary, .hover-actions-trigger:hover .google-map-control-btn .hover-actions.zoomIn, .google-map-control-btn .hover-actions-trigger:hover .hover-actions.zoomIn,
+.hover-actions-trigger:hover .hover-actions.btn, .hover-actions-trigger:hover [data-list] .hover-actions.page, [data-list] .hover-actions-trigger:hover .hover-actions.page,
+.hover-actions-trigger:hover .table-list .hover-actions.page,
+.table-list .hover-actions-trigger:hover .hover-actions.page, .hover-actions-trigger:hover .tox .hover-actions.tox-button, .tox .hover-actions-trigger:hover .hover-actions.tox-button, .hover-actions-trigger:hover .tox .hover-actions.tox-button-secondary, .tox .hover-actions-trigger:hover .hover-actions.tox-button-secondary, .hover-actions-trigger:hover .tox .tox-dialog__footer .hover-actions.tox-button--secondary, .tox .tox-dialog__footer .hover-actions-trigger:hover .hover-actions.tox-button--secondary, .hover-actions-trigger:hover .google-map-control-btn .hover-actions.zoomIn, .google-map-control-btn .hover-actions-trigger:hover .hover-actions.zoomIn,
 .hover-actions-trigger:hover .google-map-control-btn .hover-actions.zoomOut,
-.google-map-control-btn .hover-actions-trigger:hover .hover-actions.zoomOut, .hover-actions-trigger:focus .hover-actions.btn, .hover-actions-trigger:focus [data-list] .hover-actions.page, [data-list] .hover-actions-trigger:focus .hover-actions.page, .hover-actions-trigger:focus .table-list .hover-actions.page, .table-list .hover-actions-trigger:focus .hover-actions.page, .hover-actions-trigger:focus .tox .hover-actions.tox-button, .tox .hover-actions-trigger:focus .hover-actions.tox-button, .hover-actions-trigger:focus .tox .hover-actions.tox-button-secondary, .tox .hover-actions-trigger:focus .hover-actions.tox-button-secondary, .hover-actions-trigger:focus .tox .tox-dialog__footer .hover-actions.tox-button--secondary, .tox .tox-dialog__footer .hover-actions-trigger:focus .hover-actions.tox-button--secondary, .hover-actions-trigger:focus .google-map-control-btn .hover-actions.zoomIn, .google-map-control-btn .hover-actions-trigger:focus .hover-actions.zoomIn,
+.google-map-control-btn .hover-actions-trigger:hover .hover-actions.zoomOut, .hover-actions-trigger:focus .hover-actions.btn, .hover-actions-trigger:focus [data-list] .hover-actions.page, [data-list] .hover-actions-trigger:focus .hover-actions.page,
+.hover-actions-trigger:focus .table-list .hover-actions.page,
+.table-list .hover-actions-trigger:focus .hover-actions.page, .hover-actions-trigger:focus .tox .hover-actions.tox-button, .tox .hover-actions-trigger:focus .hover-actions.tox-button, .hover-actions-trigger:focus .tox .hover-actions.tox-button-secondary, .tox .hover-actions-trigger:focus .hover-actions.tox-button-secondary, .hover-actions-trigger:focus .tox .tox-dialog__footer .hover-actions.tox-button--secondary, .tox .tox-dialog__footer .hover-actions-trigger:focus .hover-actions.tox-button--secondary, .hover-actions-trigger:focus .google-map-control-btn .hover-actions.zoomIn, .google-map-control-btn .hover-actions-trigger:focus .hover-actions.zoomIn,
 .hover-actions-trigger:focus .google-map-control-btn .hover-actions.zoomOut,
 .google-map-control-btn .hover-actions-trigger:focus .hover-actions.zoomOut {
   display: inline-block;
@@ -29736,50 +30098,15 @@ a[href].bg-200:hover, a[href].bg-200:focus {
 .table > tbody > tr > td:last-child {
   padding-right: 0;
 }
-.table .table-primary, .table.table-primary {
-  color: #31374a;
-  border-color: #cbd0dd;
-}
-.table .table-secondary, .table.table-secondary {
-  color: #31374a;
-  border-color: #cbd0dd;
-}
-.table .table-success, .table.table-success {
-  color: #31374a;
-  border-color: #cbd0dd;
-}
-.table .table-info, .table.table-info {
-  color: #31374a;
-  border-color: #cbd0dd;
-}
-.table .table-warning, .table.table-warning {
-  color: #31374a;
-  border-color: #cbd0dd;
-}
-.table .table-danger, .table.table-danger {
-  color: #31374a;
-  border-color: #cbd0dd;
-}
-.table .table-light, .table.table-light {
-  color: #31374a;
-  border-color: #cbd0dd;
-}
-.table .table-dark, .table.table-dark {
-  --phoenix-table-hover-bg: rgba(
-    var(--phoenix-primary-600-rgb),
-    0.07
-  );
-  color: #9fa6bc;
-}
 
 /*-----------------------------------------------
 |   Scrollbar style for windows
 -----------------------------------------------*/
-.scrollbar, .picmo__picker.picmo__picker .picmo__emojiArea, html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content,
+.scrollbar, .offcanvas.faq-sidebar, .tox .tox-toolbar--scrolling, .picmo__picker.picmo__picker .picmo__emojiArea, html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content,
 .scrollbar-overlay {
   overflow: auto;
 }
-.scrollbar::-webkit-scrollbar, .picmo__picker.picmo__picker .picmo__emojiArea::-webkit-scrollbar, html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content::-webkit-scrollbar,
+.scrollbar::-webkit-scrollbar, .offcanvas.faq-sidebar::-webkit-scrollbar, .tox .tox-toolbar--scrolling::-webkit-scrollbar, .picmo__picker.picmo__picker .picmo__emojiArea::-webkit-scrollbar, html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content::-webkit-scrollbar,
 .scrollbar-overlay::-webkit-scrollbar {
   visibility: hidden;
   -webkit-appearance: none;
@@ -29787,13 +30114,13 @@ a[href].bg-200:hover, a[href].bg-200:focus {
   height: 6px;
   background-color: transparent;
 }
-.scrollbar::-webkit-scrollbar-thumb, .picmo__picker.picmo__picker .picmo__emojiArea::-webkit-scrollbar-thumb, html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content::-webkit-scrollbar-thumb,
+.scrollbar::-webkit-scrollbar-thumb, .offcanvas.faq-sidebar::-webkit-scrollbar-thumb, .tox .tox-toolbar--scrolling::-webkit-scrollbar-thumb, .picmo__picker.picmo__picker .picmo__emojiArea::-webkit-scrollbar-thumb, html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content::-webkit-scrollbar-thumb,
 .scrollbar-overlay::-webkit-scrollbar-thumb {
   visibility: hidden;
   border-radius: 3px;
   background-color: var(--phoenix-scrollbar-bg);
 }
-.scrollbar:hover::-webkit-scrollbar, .picmo__picker.picmo__picker .picmo__emojiArea:hover::-webkit-scrollbar, html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content:hover::-webkit-scrollbar, .scrollbar:hover::-webkit-scrollbar-thumb, .picmo__picker.picmo__picker .picmo__emojiArea:hover::-webkit-scrollbar-thumb, html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content:hover::-webkit-scrollbar-thumb, .scrollbar:focus::-webkit-scrollbar, .picmo__picker.picmo__picker .picmo__emojiArea:focus::-webkit-scrollbar, html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content:focus::-webkit-scrollbar, .scrollbar:focus::-webkit-scrollbar-thumb, .picmo__picker.picmo__picker .picmo__emojiArea:focus::-webkit-scrollbar-thumb, html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content:focus::-webkit-scrollbar-thumb,
+.scrollbar:hover::-webkit-scrollbar, .offcanvas.faq-sidebar:hover::-webkit-scrollbar, .tox .tox-toolbar--scrolling:hover::-webkit-scrollbar, .picmo__picker.picmo__picker .picmo__emojiArea:hover::-webkit-scrollbar, html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content:hover::-webkit-scrollbar, .scrollbar:hover::-webkit-scrollbar-thumb, .offcanvas.faq-sidebar:hover::-webkit-scrollbar-thumb, .tox .tox-toolbar--scrolling:hover::-webkit-scrollbar-thumb, .picmo__picker.picmo__picker .picmo__emojiArea:hover::-webkit-scrollbar-thumb, html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content:hover::-webkit-scrollbar-thumb, .scrollbar:focus::-webkit-scrollbar, .offcanvas.faq-sidebar:focus::-webkit-scrollbar, .tox .tox-toolbar--scrolling:focus::-webkit-scrollbar, .picmo__picker.picmo__picker .picmo__emojiArea:focus::-webkit-scrollbar, html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content:focus::-webkit-scrollbar, .scrollbar:focus::-webkit-scrollbar-thumb, .offcanvas.faq-sidebar:focus::-webkit-scrollbar-thumb, .tox .tox-toolbar--scrolling:focus::-webkit-scrollbar-thumb, .picmo__picker.picmo__picker .picmo__emojiArea:focus::-webkit-scrollbar-thumb, html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content:focus::-webkit-scrollbar-thumb,
 .scrollbar-overlay:hover::-webkit-scrollbar,
 .scrollbar-overlay:hover::-webkit-scrollbar-thumb,
 .scrollbar-overlay:focus::-webkit-scrollbar,
@@ -29801,31 +30128,31 @@ a[href].bg-200:hover, a[href].bg-200:focus {
   visibility: visible;
 }
 
-.navbar-vibrant .scrollbar, .navbar-vibrant .picmo__picker.picmo__picker .picmo__emojiArea, .picmo__picker.picmo__picker .navbar-vibrant .picmo__emojiArea, .navbar-vibrant html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content, html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vibrant .navbar-vertical-content {
+.navbar-vibrant .scrollbar, .navbar-vibrant .offcanvas.faq-sidebar, .navbar-vibrant .tox .tox-toolbar--scrolling, .tox .navbar-vibrant .tox-toolbar--scrolling, .navbar-vibrant .picmo__picker.picmo__picker .picmo__emojiArea, .picmo__picker.picmo__picker .navbar-vibrant .picmo__emojiArea, .navbar-vibrant html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content, html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vibrant .navbar-vertical-content {
   overflow: auto;
 }
-.navbar-vibrant .scrollbar::-webkit-scrollbar, .navbar-vibrant .picmo__picker.picmo__picker .picmo__emojiArea::-webkit-scrollbar, .picmo__picker.picmo__picker .navbar-vibrant .picmo__emojiArea::-webkit-scrollbar, .navbar-vibrant html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content::-webkit-scrollbar, html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vibrant .navbar-vertical-content::-webkit-scrollbar {
+.navbar-vibrant .scrollbar::-webkit-scrollbar, .navbar-vibrant .offcanvas.faq-sidebar::-webkit-scrollbar, .navbar-vibrant .tox .tox-toolbar--scrolling::-webkit-scrollbar, .tox .navbar-vibrant .tox-toolbar--scrolling::-webkit-scrollbar, .navbar-vibrant .picmo__picker.picmo__picker .picmo__emojiArea::-webkit-scrollbar, .picmo__picker.picmo__picker .navbar-vibrant .picmo__emojiArea::-webkit-scrollbar, .navbar-vibrant html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content::-webkit-scrollbar, html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vibrant .navbar-vertical-content::-webkit-scrollbar {
   visibility: hidden;
   -webkit-appearance: none;
   width: 6px;
   height: 6px;
   background-color: transparent;
 }
-.navbar-vibrant .scrollbar::-webkit-scrollbar-thumb, .navbar-vibrant .picmo__picker.picmo__picker .picmo__emojiArea::-webkit-scrollbar-thumb, .picmo__picker.picmo__picker .navbar-vibrant .picmo__emojiArea::-webkit-scrollbar-thumb, .navbar-vibrant html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content::-webkit-scrollbar-thumb, html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vibrant .navbar-vertical-content::-webkit-scrollbar-thumb {
+.navbar-vibrant .scrollbar::-webkit-scrollbar-thumb, .navbar-vibrant .offcanvas.faq-sidebar::-webkit-scrollbar-thumb, .navbar-vibrant .tox .tox-toolbar--scrolling::-webkit-scrollbar-thumb, .tox .navbar-vibrant .tox-toolbar--scrolling::-webkit-scrollbar-thumb, .navbar-vibrant .picmo__picker.picmo__picker .picmo__emojiArea::-webkit-scrollbar-thumb, .picmo__picker.picmo__picker .navbar-vibrant .picmo__emojiArea::-webkit-scrollbar-thumb, .navbar-vibrant html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content::-webkit-scrollbar-thumb, html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vibrant .navbar-vertical-content::-webkit-scrollbar-thumb {
   visibility: hidden;
   border-radius: 3px;
   background-color: rgba(255, 255, 255, 0.4);
 }
-.navbar-vibrant .scrollbar:hover::-webkit-scrollbar, .navbar-vibrant .picmo__picker.picmo__picker .picmo__emojiArea:hover::-webkit-scrollbar, .picmo__picker.picmo__picker .navbar-vibrant .picmo__emojiArea:hover::-webkit-scrollbar, .navbar-vibrant html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content:hover::-webkit-scrollbar, html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vibrant .navbar-vertical-content:hover::-webkit-scrollbar, .navbar-vibrant .scrollbar:hover::-webkit-scrollbar-thumb, .navbar-vibrant .picmo__picker.picmo__picker .picmo__emojiArea:hover::-webkit-scrollbar-thumb, .picmo__picker.picmo__picker .navbar-vibrant .picmo__emojiArea:hover::-webkit-scrollbar-thumb, .navbar-vibrant html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content:hover::-webkit-scrollbar-thumb, html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vibrant .navbar-vertical-content:hover::-webkit-scrollbar-thumb, .navbar-vibrant .scrollbar:focus::-webkit-scrollbar, .navbar-vibrant .picmo__picker.picmo__picker .picmo__emojiArea:focus::-webkit-scrollbar, .picmo__picker.picmo__picker .navbar-vibrant .picmo__emojiArea:focus::-webkit-scrollbar, .navbar-vibrant html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content:focus::-webkit-scrollbar, html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vibrant .navbar-vertical-content:focus::-webkit-scrollbar, .navbar-vibrant .scrollbar:focus::-webkit-scrollbar-thumb, .navbar-vibrant .picmo__picker.picmo__picker .picmo__emojiArea:focus::-webkit-scrollbar-thumb, .picmo__picker.picmo__picker .navbar-vibrant .picmo__emojiArea:focus::-webkit-scrollbar-thumb, .navbar-vibrant html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content:focus::-webkit-scrollbar-thumb, html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vibrant .navbar-vertical-content:focus::-webkit-scrollbar-thumb {
+.navbar-vibrant .scrollbar:hover::-webkit-scrollbar, .navbar-vibrant .offcanvas.faq-sidebar:hover::-webkit-scrollbar, .navbar-vibrant .tox .tox-toolbar--scrolling:hover::-webkit-scrollbar, .tox .navbar-vibrant .tox-toolbar--scrolling:hover::-webkit-scrollbar, .navbar-vibrant .picmo__picker.picmo__picker .picmo__emojiArea:hover::-webkit-scrollbar, .picmo__picker.picmo__picker .navbar-vibrant .picmo__emojiArea:hover::-webkit-scrollbar, .navbar-vibrant html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content:hover::-webkit-scrollbar, html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vibrant .navbar-vertical-content:hover::-webkit-scrollbar, .navbar-vibrant .scrollbar:hover::-webkit-scrollbar-thumb, .navbar-vibrant .offcanvas.faq-sidebar:hover::-webkit-scrollbar-thumb, .navbar-vibrant .tox .tox-toolbar--scrolling:hover::-webkit-scrollbar-thumb, .tox .navbar-vibrant .tox-toolbar--scrolling:hover::-webkit-scrollbar-thumb, .navbar-vibrant .picmo__picker.picmo__picker .picmo__emojiArea:hover::-webkit-scrollbar-thumb, .picmo__picker.picmo__picker .navbar-vibrant .picmo__emojiArea:hover::-webkit-scrollbar-thumb, .navbar-vibrant html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content:hover::-webkit-scrollbar-thumb, html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vibrant .navbar-vertical-content:hover::-webkit-scrollbar-thumb, .navbar-vibrant .scrollbar:focus::-webkit-scrollbar, .navbar-vibrant .offcanvas.faq-sidebar:focus::-webkit-scrollbar, .navbar-vibrant .tox .tox-toolbar--scrolling:focus::-webkit-scrollbar, .tox .navbar-vibrant .tox-toolbar--scrolling:focus::-webkit-scrollbar, .navbar-vibrant .picmo__picker.picmo__picker .picmo__emojiArea:focus::-webkit-scrollbar, .picmo__picker.picmo__picker .navbar-vibrant .picmo__emojiArea:focus::-webkit-scrollbar, .navbar-vibrant html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content:focus::-webkit-scrollbar, html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vibrant .navbar-vertical-content:focus::-webkit-scrollbar, .navbar-vibrant .scrollbar:focus::-webkit-scrollbar-thumb, .navbar-vibrant .offcanvas.faq-sidebar:focus::-webkit-scrollbar-thumb, .navbar-vibrant .tox .tox-toolbar--scrolling:focus::-webkit-scrollbar-thumb, .tox .navbar-vibrant .tox-toolbar--scrolling:focus::-webkit-scrollbar-thumb, .navbar-vibrant .picmo__picker.picmo__picker .picmo__emojiArea:focus::-webkit-scrollbar-thumb, .picmo__picker.picmo__picker .navbar-vibrant .picmo__emojiArea:focus::-webkit-scrollbar-thumb, .navbar-vibrant html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content:focus::-webkit-scrollbar-thumb, html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vibrant .navbar-vertical-content:focus::-webkit-scrollbar-thumb {
   visibility: visible;
 }
 
-.firefox .scrollbar, .firefox .picmo__picker.picmo__picker .picmo__emojiArea, .picmo__picker.picmo__picker .firefox .picmo__emojiArea, .firefox html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content, html:not(.navbar-vertical-collapsed) .navbar-vertical .firefox .navbar-vertical-content {
+.firefox .scrollbar, .firefox .offcanvas.faq-sidebar, .firefox .tox .tox-toolbar--scrolling, .tox .firefox .tox-toolbar--scrolling, .firefox .picmo__picker.picmo__picker .picmo__emojiArea, .picmo__picker.picmo__picker .firefox .picmo__emojiArea, .firefox html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content, html:not(.navbar-vertical-collapsed) .navbar-vertical .firefox .navbar-vertical-content {
   overflow: auto !important;
   scrollbar-color: var(--phoenix-scrollbar-bg) transparent;
   scrollbar-width: thin;
 }
-.firefox .navbar-vibrant .scrollbar, .firefox .navbar-vibrant .picmo__picker.picmo__picker .picmo__emojiArea, .picmo__picker.picmo__picker .firefox .navbar-vibrant .picmo__emojiArea, .firefox .navbar-vibrant html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content, html:not(.navbar-vertical-collapsed) .navbar-vertical .firefox .navbar-vibrant .navbar-vertical-content {
+.firefox .navbar-vibrant .scrollbar, .firefox .navbar-vibrant .offcanvas.faq-sidebar, .firefox .navbar-vibrant .tox .tox-toolbar--scrolling, .tox .firefox .navbar-vibrant .tox-toolbar--scrolling, .firefox .navbar-vibrant .picmo__picker.picmo__picker .picmo__emojiArea, .picmo__picker.picmo__picker .firefox .navbar-vibrant .picmo__emojiArea, .firefox .navbar-vibrant html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content, html:not(.navbar-vertical-collapsed) .navbar-vertical .firefox .navbar-vibrant .navbar-vertical-content {
   overflow: auto !important;
   scrollbar-color: rgba(255, 255, 255, 0.4) transparent;
   scrollbar-width: thin;
@@ -29963,7 +30290,8 @@ a[href].bg-200:hover, a[href].bg-200:focus {
   border-bottom-right-radius: inherit;
   border-bottom-left-radius: inherit;
 }
-.list-group-item.disabled, .list-group-item:disabled {
+.list-group-item.disabled, [data-list] li.disabled button.list-group-item,
+.table-list li.disabled button.list-group-item, .list-group-item:disabled {
   color: #6e7891;
   pointer-events: none;
   background-color: var(--phoenix-list-group-bg);
@@ -30408,7 +30736,7 @@ a[href].bg-200:hover, a[href].bg-200:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.6) !important;
 }
 .hoverbox .hoverbox-primary-content {
   position: absolute;
@@ -30850,7 +31178,7 @@ a[href].bg-200:hover, a[href].bg-200:focus {
   .product-filter-offcanvas {
     position: sticky !important;
     top: 1rem !important;
-    padding: 0 !important;
+    padding: 0 0 0 0.5rem !important;
     -webkit-transform: none !important;
     -ms-transform: none !important;
     transform: none !important;
@@ -30873,6 +31201,12 @@ a[href].bg-200:hover, a[href].bg-200:focus {
 @media (min-width: 992px) {
   .product-card-container .product-card {
     max-width: auto;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1539.98px) {
+  .product-filter-container {
+    max-width: 76rem;
   }
 }
 
@@ -30948,7 +31282,9 @@ a[href].bg-200:hover, a[href].bg-200:focus {
   width: 100%;
   height: 222px;
 }
-.gantt-zero-roadmap .btn-group .btn-check:checked + .btn, .gantt-zero-roadmap .btn-group [data-list] .btn-check:checked + .page, [data-list] .gantt-zero-roadmap .btn-group .btn-check:checked + .page, .gantt-zero-roadmap .btn-group .table-list .btn-check:checked + .page, .table-list .gantt-zero-roadmap .btn-group .btn-check:checked + .page, .gantt-zero-roadmap .btn-group .tox .btn-check:checked + .tox-button, .tox .gantt-zero-roadmap .btn-group .btn-check:checked + .tox-button, .gantt-zero-roadmap .btn-group .tox .btn-check:checked + .tox-button-secondary, .tox .gantt-zero-roadmap .btn-group .btn-check:checked + .tox-button-secondary, .gantt-zero-roadmap .btn-group .tox .tox-dialog__footer .btn-check:checked + .tox-button--secondary, .tox .tox-dialog__footer .gantt-zero-roadmap .btn-group .btn-check:checked + .tox-button--secondary, .gantt-zero-roadmap .btn-group .tox .tox-dialog__footer .btn-check:checked + .tox-button:last-child, .gantt-zero-roadmap .btn-group .google-map-control-btn .btn-check:checked + .zoomIn, .google-map-control-btn .gantt-zero-roadmap .btn-group .btn-check:checked + .zoomIn,
+.gantt-zero-roadmap .btn-group .btn-check:checked + .btn, .gantt-zero-roadmap .btn-group [data-list] .btn-check:checked + .page, [data-list] .gantt-zero-roadmap .btn-group .btn-check:checked + .page,
+.gantt-zero-roadmap .btn-group .table-list .btn-check:checked + .page,
+.table-list .gantt-zero-roadmap .btn-group .btn-check:checked + .page, .gantt-zero-roadmap .btn-group .tox .btn-check:checked + .tox-button, .tox .gantt-zero-roadmap .btn-group .btn-check:checked + .tox-button, .gantt-zero-roadmap .btn-group .tox .btn-check:checked + .tox-button-secondary, .tox .gantt-zero-roadmap .btn-group .btn-check:checked + .tox-button-secondary, .gantt-zero-roadmap .btn-group .tox .tox-dialog__footer .btn-check:checked + .tox-button--secondary, .tox .tox-dialog__footer .gantt-zero-roadmap .btn-group .btn-check:checked + .tox-button--secondary, .gantt-zero-roadmap .btn-group .tox .tox-dialog__footer .btn-check:checked + .tox-button:last-child, .gantt-zero-roadmap .btn-group .google-map-control-btn .btn-check:checked + .zoomIn, .google-map-control-btn .gantt-zero-roadmap .btn-group .btn-check:checked + .zoomIn,
 .gantt-zero-roadmap .btn-group .google-map-control-btn .btn-check:checked + .zoomOut,
 .google-map-control-btn .gantt-zero-roadmap .btn-group .btn-check:checked + .zoomOut {
   border-color: var(--phoenix-gray-soft) transparent;
@@ -31228,6 +31564,30 @@ a[href].bg-200:hover, a[href].bg-200:focus {
   transform: scaleX(-1);
 }
 
+.footer-default {
+  padding-top: 18.75rem;
+}
+@media (min-width: 576px) {
+  .footer-default {
+    padding-top: 15.625rem;
+  }
+}
+@media (min-width: 768px) {
+  .footer-default {
+    padding-top: 12.5rem;
+  }
+}
+@media (min-width: 1200px) {
+  .footer-default {
+    padding-top: 9.375rem;
+  }
+}
+@media (min-width: 1540px) {
+  .footer-default {
+    padding-top: 15.625rem;
+  }
+}
+
 .alternate-landing {
   background-color: #fff;
 }
@@ -31326,11 +31686,6 @@ a[href].bg-200:hover, a[href].bg-200:focus {
 .feature-image {
   max-width: 28.125rem;
   width: 100%;
-}
-@media (min-width: 1200px) {
-  .feature-image {
-    max-width: 100%;
-  }
 }
 
 .pricing-card {
@@ -31483,6 +31838,10 @@ a[href].bg-200:hover, a[href].bg-200:focus {
   top: 27%;
 }
 
+.bp-lr {
+  width: auto !important;
+}
+
 .content-offcanvas {
   position: fixed;
   width: 35rem !important;
@@ -31558,6 +31917,30 @@ a[href].bg-200:hover, a[href].bg-200:focus {
   width: 100vw;
   background: rgba(0, 0, 0, 0.1);
   z-index: 8;
+}
+
+.offcanvas.faq-sidebar {
+  height: 100%;
+  visibility: visible !important;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+@media (min-width: 768px) {
+  .offcanvas.faq-sidebar {
+    overflow: unset !important;
+  }
+  .firefox .offcanvas.faq-sidebar {
+    overflow: unset !important;
+  }
+}
+@media (min-width: 768px) {
+  .offcanvas.faq-sidebar.offcanvas-start {
+    border-right: 0px;
+    -webkit-transform: translateX(0%) !important;
+    -ms-transform: translateX(0%) !important;
+    transform: translateX(0%) !important;
+    position: sticky;
+  }
 }
 
 .theme-wizard .nav-item {
@@ -31749,6 +32132,10 @@ a[href].bg-200:hover, a[href].bg-200:focus {
   height: calc(100% - 74px);
 }
 
+.safari .email-detail-content {
+  padding-bottom: 1px;
+}
+
 .email-sidebar .email-content {
   height: 100%;
 }
@@ -31762,7 +32149,7 @@ a[href].bg-200:hover, a[href].bg-200:focus {
   min-height: 250px;
 }
 .email-textarea + .tox .tox-editor-header {
-  margin: 0 !important;
+  margin: 0 0 0.25rem !important;
   padding: 0 !important;
 }
 
@@ -31778,6 +32165,9 @@ a[href].bg-200:hover, a[href].bg-200:focus {
 }
 .email-container .email-toolbar.inbox-toolbar {
   top: calc(var(--phoenix-navbar-top-height) + 5.375rem);
+}
+.email-container .phoenix-offcanvas-backdrop {
+  background: rgba(0, 0, 0, 0.4) !important;
 }
 
 .location-map {
@@ -31824,17 +32214,6 @@ a[href].bg-200:hover, a[href].bg-200:focus {
   color: #fff;
   -webkit-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-}
-
-.cover-image {
-  overflow: hidden;
-  z-index: 0;
-}
-.cover-image:hover .cover-image-file-input {
-  opacity: 1;
-  -webkit-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -32648,6 +33027,10 @@ a[href].bg-200:hover, a[href].bg-200:focus {
   background-color: transparent;
 }
 
+.firefox .chat-sidebar .scrollbar, .firefox .chat-sidebar .tox .tox-toolbar--scrolling, .tox .firefox .chat-sidebar .tox-toolbar--scrolling, .firefox .chat-sidebar .picmo__picker.picmo__picker .picmo__emojiArea, .picmo__picker.picmo__picker .firefox .chat-sidebar .picmo__emojiArea, .firefox .chat-sidebar html:not(.navbar-vertical-collapsed) .navbar-vertical .navbar-vertical-content, html:not(.navbar-vertical-collapsed) .navbar-vertical .firefox .chat-sidebar .navbar-vertical-content, .firefox .chat-sidebar .offcanvas.faq-sidebar {
+  min-width: 75px;
+}
+
 .dot-typing {
   position: relative;
   left: -9999px;
@@ -32981,8 +33364,14 @@ a[href].bg-200:hover, a[href].bg-200:focus {
 }
 
 .crm-deals-breadcrumb {
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+@media (min-width: 992px) {
+  .crm-deals-breadcrumb {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
 }
 
 .bg-auth-card-overlay {
@@ -33058,6 +33447,18 @@ a[href].bg-200:hover, a[href].bg-200:focus {
   .auth-card .auth-form-box {
     max-width: 25rem;
   }
+}
+
+.verification-form {
+  max-width: 17.6875rem;
+  margin: 0 auto;
+}
+.verification-form .form-control {
+  -moz-appearance: textfield;
+}
+.verification-form .form-control::-webkit-outer-spin-button, .verification-form .form-control::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .support-chat-container {
@@ -33215,10 +33616,10 @@ a[href].bg-200:hover, a[href].bg-200:focus {
 }
 
 .kanban-content {
+  position: fixed;
   padding-top: var(--phoenix-navbar-top-height);
   padding-left: 0 !important;
   padding-right: 0 !important;
-  position: fixed;
   left: 0;
   right: 0;
 }
@@ -33233,10 +33634,109 @@ a[href].bg-200:hover, a[href].bg-200:focus {
   height: calc(100vh - var(--phoenix-navbar-top-height) - 4rem);
 }
 
+@media (min-width: 1540px) {
+  .navbar.navbar-expand-xxl ~ .kanban-content .kanban-header,
+.navbar.navbar-expand-xxl ~ .kanban-deals-content .kanban-header {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+  .navbar.navbar-expand-xxl ~ .kanban-content .kanban-container,
+.navbar.navbar-expand-xxl ~ .kanban-deals-content .kanban-container {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+  .navbar.navbar-expand-xxl ~ .kanban-content .footer,
+.navbar.navbar-expand-xxl ~ .kanban-deals-content .footer {
+    padding-left: 2.5rem;
+  }
+}
+@media (min-width: 1200px) {
+  .navbar.navbar-expand-xl ~ .kanban-content .kanban-header,
+.navbar.navbar-expand-xl ~ .kanban-deals-content .kanban-header {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+  .navbar.navbar-expand-xl ~ .kanban-content .kanban-container,
+.navbar.navbar-expand-xl ~ .kanban-deals-content .kanban-container {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+  .navbar.navbar-expand-xl ~ .kanban-content .footer,
+.navbar.navbar-expand-xl ~ .kanban-deals-content .footer {
+    padding-left: 2.5rem;
+  }
+}
+@media (min-width: 992px) {
+  .navbar.navbar-expand-lg ~ .kanban-content .kanban-header,
+.navbar.navbar-expand-lg ~ .kanban-deals-content .kanban-header {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+  .navbar.navbar-expand-lg ~ .kanban-content .kanban-container,
+.navbar.navbar-expand-lg ~ .kanban-deals-content .kanban-container {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+  .navbar.navbar-expand-lg ~ .kanban-content .footer,
+.navbar.navbar-expand-lg ~ .kanban-deals-content .footer {
+    padding-left: 2.5rem;
+  }
+}
+@media (min-width: 768px) {
+  .navbar.navbar-expand-md ~ .kanban-content .kanban-header,
+.navbar.navbar-expand-md ~ .kanban-deals-content .kanban-header {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+  .navbar.navbar-expand-md ~ .kanban-content .kanban-container,
+.navbar.navbar-expand-md ~ .kanban-deals-content .kanban-container {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+  .navbar.navbar-expand-md ~ .kanban-content .footer,
+.navbar.navbar-expand-md ~ .kanban-deals-content .footer {
+    padding-left: 2.5rem;
+  }
+}
+@media (min-width: 576px) {
+  .navbar.navbar-expand-sm ~ .kanban-content .kanban-header,
+.navbar.navbar-expand-sm ~ .kanban-deals-content .kanban-header {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+  .navbar.navbar-expand-sm ~ .kanban-content .kanban-container,
+.navbar.navbar-expand-sm ~ .kanban-deals-content .kanban-container {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+  .navbar.navbar-expand-sm ~ .kanban-content .footer,
+.navbar.navbar-expand-sm ~ .kanban-deals-content .footer {
+    padding-left: 2.5rem;
+  }
+}
+.navbar.navbar-expand-xs ~ .kanban-content .kanban-header,
+.navbar.navbar-expand-xs ~ .kanban-deals-content .kanban-header {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+.navbar.navbar-expand-xs ~ .kanban-content .kanban-container,
+.navbar.navbar-expand-xs ~ .kanban-deals-content .kanban-container {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+.navbar.navbar-expand-xs ~ .kanban-content .footer,
+.navbar.navbar-expand-xs ~ .kanban-deals-content .footer {
+  padding-left: 2.5rem;
+}
+
+.kanban-header {
+  padding: 0.5rem 1.5rem;
+  border-bottom: 1px solid var(--phoenix-gray-300);
+}
+
 .kanban-container {
   white-space: nowrap;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding: 0 1.5rem;
   background-color: var(--phoenix-kanban-bg);
   height: calc(100vh - var(--phoenix-navbar-top-height) - 4rem - 106px);
 }
@@ -33245,41 +33745,15 @@ a[href].bg-200:hover, a[href].bg-200:focus {
     height: calc(100vh - var(--phoenix-navbar-top-height) - 4rem - 63px);
   }
 }
-.kanban-container .sortable-drag {
-  border: 0 !important;
-}
-.kanban-container .sortable-drag .kanban-item-card {
-  -webkit-transform: rotate(-5deg) !important;
-  -ms-transform: rotate(-5deg) !important;
-  transform: rotate(-5deg) !important;
+.kanban-container .sortable-drag .sortable-item.card {
   background-color: var(--phoenix-drag-bg);
-  top: 5px;
 }
-.kanban-container .kanban-item {
-  cursor: pointer;
-}
-.kanban-container .kanban-item:active {
-  cursor: -webkit-grabbing;
-  cursor: grabbing;
-}
-.kanban-container .kanban-item.sortable-ghost .kanban-item-card {
-  position: relative;
-}
-.kanban-container .kanban-item.sortable-ghost .kanban-item-card::before {
-  content: "";
-  height: 100%;
-  width: 100%;
-  background-color: var(--phoenix-ghost-bg);
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  border-radius: 0.375rem;
-}
-.kanban-container .kanban-item-card {
+.kanban-container .sortable-item.card {
   background-color: var(--phoenix-kanban-column-bg);
+  border-radius: 0.5rem;
+  border: 0;
 }
-.kanban-container .kanban-item-card:hover {
+.kanban-container .sortable-item.card:hover {
   background-color: var(--phoenix-kanban-column-hover-bg);
 }
 .kanban-container .kanban-items-container {
@@ -33353,7 +33827,7 @@ a[href].bg-200:hover, a[href].bg-200:focus {
 .kanban-container .kanban-column.collapsed .kanban-header-dropdown-btn {
   display: none !important;
 }
-.kanban-container .kanban-column.collapsed .kanban-header {
+.kanban-container .kanban-column.collapsed .kanban-column-header {
   padding-left: 1rem !important;
   padding-right: 1rem !important;
 }
@@ -33387,7 +33861,7 @@ a[href].bg-200:hover, a[href].bg-200:focus {
   -o-transition: none;
   transition: none;
 }
-.kanban-container .kanban-column.collapsed .kanban-items-container .kanban-item {
+.kanban-container .kanban-column.collapsed .kanban-items-container .sortable-item {
   display: none;
 }
 
@@ -33409,15 +33883,8 @@ a[href].bg-200:hover, a[href].bg-200:focus {
 .kanban-action-item {
   background-color: var(--phoenix-gray-soft);
   margin-bottom: 0.5rem;
-  padding-left: 1rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
   border-radius: 0.375rem;
-}
-
-.sortable-dragging * {
-  cursor: -webkit-grabbing !important;
-  cursor: grabbing !important;
+  position: relative;
 }
 
 .kanban-create-board .nav-underline .nav-item {
@@ -33688,5 +34155,43 @@ a[href].bg-200:hover, a[href].bg-200:focus {
 .kanban-boards-content {
   padding-left: 0 !important;
   padding-right: 0 !important;
+}
+
+.sortable-drag {
+  opacity: 1 !important;
+}
+.sortable-drag .sortable-item {
+  -webkit-transform: rotate(-5deg);
+  -ms-transform: rotate(-5deg);
+  transform: rotate(-5deg);
+  top: 5px;
+}
+
+.sortable-ghost .sortable-item {
+  position: relative;
+}
+.sortable-ghost .sortable-item::before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  background-color: var(--phoenix-ghost-bg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  border-radius: 0.375rem;
+}
+
+.sortable-dragging * {
+  cursor: -webkit-grabbing !important;
+  cursor: grabbing !important;
+}
+
+.sortable-item {
+  cursor: pointer;
+}
+.sortable-item:active {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
 }
 /*# sourceMappingURL=theme.css.map */

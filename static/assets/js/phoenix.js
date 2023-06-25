@@ -1156,6 +1156,18 @@
     // Merge user options with lodash
     chart.setOption(merge$2(getDefaultOptions(), userOptions));
 
+    const navbarVerticalToggle = document.querySelector(
+      '.navbar-vertical-toggle'
+    );
+    if (navbarVerticalToggle) {
+      navbarVerticalToggle.addEventListener('navbar.vertical.toggle', () => {
+        chart.resize();
+        if (responsiveOptions) {
+          handleResize(responsiveOptions);
+        }
+      });
+    }
+
     resize(() => {
       chart.resize();
       if (responsiveOptions) {
@@ -1177,35 +1189,21 @@
   };
   // -------------------end config.js--------------------
 
-  const resizeEcharts = () => {
-    const $echarts = document.querySelectorAll('[data-echart-responsive]');
-
-    if ($echarts.length > 0) {
-      $echarts.forEach(item => {
-        const echartInstance = echarts.getInstanceByDom(item);
-        echartInstance?.resize();
-      });
-    }
-  };
-
-  const navbarVerticalToggle = document.querySelector('.navbar-vertical-toggle');
-  navbarVerticalToggle &&
-    navbarVerticalToggle.addEventListener('navbar.vertical.toggle', e => {
-      return resizeEcharts();
-    });
-
   const echartTabs = document.querySelectorAll('[data-tab-has-echarts]');
-  echartTabs &&
+  if (echartTabs) {
     echartTabs.forEach(tab => {
       tab.addEventListener('shown.bs.tab', e => {
         const el = e.target;
         const { hash } = el;
-        const id = hash ? hash : el.dataset.bsTarget;
+        const id = hash || el.dataset.bsTarget;
         const content = document.getElementById(id.substring(1));
         const chart = content?.querySelector('[data-echart-tab]');
-        chart && window.echarts.init(chart).resize();
+        if (chart) {
+          window.echarts.init(chart).resize();
+        }
       });
     });
+  }
 
   // import dayjs from 'dayjs';
   /* -------------------------------------------------------------------------- */
@@ -1433,6 +1431,9 @@
       const list = new window.List(threadTabContent, {
         valueNames: ['read', 'unreadItem']
       });
+
+      const chatBox = document.querySelector('.chat .card-body');
+      chatBox.scrollTop = chatBox.scrollHeight;
 
       threadTabItems.forEach(tabEl =>
         tabEl.addEventListener('shown.bs.tab', () => {
@@ -5227,30 +5228,16 @@
           const listFilter = document.querySelector('[data-list-filter]');
           const list = new List(el, options);
 
-          // -------fallback-----------
-
-          list.on('updated', item => {
-            const fallback =
-              el.querySelector('.fallback') ||
-              document.getElementById(options.fallback);
-
-            if (fallback) {
-              if (item.matchingItems.length === 0) {
-                fallback.classList.remove('d-none');
-              } else {
-                fallback.classList.add('d-none');
-              }
-            }
-          });
-
           // ---------------------------------------
 
-          const totalItem = list.items.length;
+          let totalItem = list.items.length;
           const itemsPerPage = list.page;
           const btnDropdownClose = list.listContainer.querySelector('.btn-close');
-          let pageQuantity = Math.ceil(totalItem / itemsPerPage);
-          let numberOfcurrentItems = list.visibleItems.length;
+          let pageQuantity = Math.ceil(list.size() / list.page);
           let pageCount = 1;
+          let numberOfcurrentItems =
+            (pageCount - 1) * Number(list.page) + list.visibleItems.length;
+          let isSearching = false;
 
           btnDropdownClose &&
             btnDropdownClose.addEventListener('search.close', () => {
@@ -5264,12 +5251,12 @@
             paginationButtonPrev &&
               togglePaginationButtonDisable(
                 paginationButtonPrev,
-                pageCount === 1
+                pageCount === 1 || pageCount === 0
               );
             paginationButtonNext &&
               togglePaginationButtonDisable(
                 paginationButtonNext,
-                pageCount === pageQuantity
+                pageCount === pageQuantity || pageCount === 0
               );
 
             if (pageCount > 1 && pageCount < pageQuantity) {
@@ -5285,12 +5272,9 @@
             paginationButtonNext.addEventListener('click', e => {
               e.preventDefault();
               pageCount += 1;
-
               const nextInitialIndex = list.i + itemsPerPage;
               nextInitialIndex <= list.size() &&
                 list.show(nextInitialIndex, itemsPerPage);
-              numberOfcurrentItems += list.visibleItems.length;
-              updateListControls();
             });
           }
 
@@ -5298,11 +5282,8 @@
             paginationButtonPrev.addEventListener('click', e => {
               e.preventDefault();
               pageCount -= 1;
-
-              numberOfcurrentItems -= list.visibleItems.length;
               const prevItem = list.i - itemsPerPage;
               prevItem > 0 && list.show(prevItem, itemsPerPage);
-              updateListControls();
             });
           }
 
@@ -5314,20 +5295,14 @@
           if (viewAll) {
             viewAll.addEventListener('click', () => {
               list.show(1, totalItem);
-              pageQuantity = 1;
               pageCount = 1;
-              numberOfcurrentItems = totalItem;
-              updateListControls();
               toggleViewBtn();
             });
           }
           if (viewLess) {
             viewLess.addEventListener('click', () => {
               list.show(1, itemsPerPage);
-              pageQuantity = Math.ceil(totalItem / itemsPerPage);
               pageCount = 1;
-              numberOfcurrentItems = list.visibleItems.length;
-              updateListControls();
               toggleViewBtn();
             });
           }
@@ -5337,21 +5312,13 @@
               if (e.target.classList[0] === 'page') {
                 const pageNum = Number(e.target.getAttribute('data-i'));
                 if (pageNum) {
-                  list.show(
-                    itemsPerPage * (pageNum - 1) + 1,
-                    numberOfcurrentItems
-                  );
-                  numberOfcurrentItems =
-                    list.visibleItems.length < itemsPerPage
-                      ? itemsPerPage * (pageNum - 1) + list.visibleItems.length
-                      : itemsPerPage * pageNum;
+                  list.show(itemsPerPage * (pageNum - 1) + 1, list.page);
                   pageCount = pageNum;
-                  updateListControls();
                 }
               }
             });
           }
-          //filter
+          // filter
           if (options.filter) {
             const { key } = options.filter;
             listFilter.addEventListener('change', e => {
@@ -5359,6 +5326,9 @@
                 if (e.target.value === '') {
                   return true;
                 }
+                pageQuantity = Math.ceil(list.matchingItems.length / list.page);
+                pageCount = 1;
+                updateListControls();
                 return item
                   .values()
                   [key].toLowerCase()
@@ -5367,7 +5337,7 @@
             });
           }
 
-          //bulk-select
+          // bulk-select
           if (bulkSelect) {
             const bulkSelectInstance =
               window.phoenix.BulkSelect.getInstance(bulkSelect);
@@ -5395,6 +5365,60 @@
               }
             });
           }
+
+          list.on('searchStart', () => {
+            isSearching = true;
+          });
+          list.on('searchComplete', () => {
+            isSearching = false;
+          });
+
+          list.on('updated', item => {
+            if (!list.matchingItems.length) {
+              pageQuantity = Math.ceil(list.size() / list.page);
+            } else {
+              pageQuantity = Math.ceil(list.matchingItems.length / list.page);
+            }
+            numberOfcurrentItems =
+              (pageCount - 1) * Number(list.page) + list.visibleItems.length;
+            updateListControls();
+
+            // -------search-----------
+            if (isSearching) {
+              if (list.matchingItems.length === 0) {
+                pageCount = 0;
+              } else {
+                pageCount = 1;
+              }
+              totalItem = list.matchingItems.length;
+              numberOfcurrentItems =
+                (pageCount === 0 ? 1 : pageCount - 1) * Number(list.page) +
+                list.visibleItems.length;
+
+              updateListControls();
+              listInfo &&
+                (listInfo.innerHTML = `${
+                list.matchingItems.length === 0 ? 0 : list.i
+              } to ${
+                list.matchingItems.length === 0 ? 0 : numberOfcurrentItems
+              } <span class='text-600'> Items of </span>${
+                list.matchingItems.length
+              }`);
+            }
+
+            // -------fallback-----------
+            const fallback =
+              el.querySelector('.fallback') ||
+              document.getElementById(options.fallback);
+
+            if (fallback) {
+              if (item.matchingItems.length === 0) {
+                fallback.classList.remove('d-none');
+              } else {
+                fallback.classList.add('d-none');
+              }
+            }
+          });
         });
       }
     }
@@ -5550,15 +5574,13 @@
   /* -------------------------------------------------------------------------- */
 
   const handleNavbarVerticalCollapsed = () => {
-    const { getItemFromStore, hasClass, setItemToStore, resize } =
-      window.phoenix.utils;
+    const { getItemFromStore, setItemToStore, resize } = window.phoenix.utils;
     const Selector = {
       HTML: 'html',
       BODY: 'body',
       NAVBAR_VERTICAL: '.navbar-vertical',
       NAVBAR_VERTICAL_TOGGLE: '.navbar-vertical-toggle',
       NAVBAR_VERTICAL_COLLAPSE: '.navbar-vertical .navbar-collapse',
-      ECHART_RESPONSIVE: '[data-echart-responsive]',
       ACTIVE_NAV_LINK: '.navbar-vertical .nav-link.active'
     };
 
@@ -5569,13 +5591,12 @@
       NAVBAR_VERTICAL_TOGGLE: 'navbar.vertical.toggle'
     };
     const ClassNames = {
-      NAVBAR_VERTICAL_COLLAPSED: 'navbar-vertical-collapsed',
-      NAVBAR_VERTICAL_COLLAPSED_HOVER: 'navbar-vertical-collapsed-hover'
+      NAVBAR_VERTICAL_COLLAPSED: 'navbar-vertical-collapsed'
     };
     const navbarVerticalToggle = document.querySelector(
       Selector.NAVBAR_VERTICAL_TOGGLE
     );
-    const html = document.querySelector(Selector.HTML);
+    // const html = document.querySelector(Selector.HTML);
     const navbarVerticalCollapse = document.querySelector(
       Selector.NAVBAR_VERTICAL_COLLAPSE
     );
@@ -5587,7 +5608,9 @@
     if (navbarVerticalToggle) {
       navbarVerticalToggle.addEventListener(Events.CLICK, e => {
         navbarVerticalToggle.blur();
-        html?.classList.toggle(ClassNames.NAVBAR_VERTICAL_COLLAPSED);
+        document.documentElement.classList.toggle(
+          ClassNames.NAVBAR_VERTICAL_COLLAPSED
+        );
 
         // Set collapse state on localStorage
         setItemToStore(
@@ -5600,17 +5623,6 @@
       });
     }
     if (navbarVerticalCollapse) {
-      navbarVerticalCollapse.addEventListener(Events.MOUSE_OVER, () => {
-        if (hasClass(html, ClassNames.NAVBAR_VERTICAL_COLLAPSED)) {
-          html?.classList.add(ClassNames.NAVBAR_VERTICAL_COLLAPSED_HOVER);
-        }
-      });
-      navbarVerticalCollapse.addEventListener(Events.MOUSE_LEAVE, () => {
-        if (hasClass(html, ClassNames.NAVBAR_VERTICAL_COLLAPSED_HOVER)) {
-          html?.classList.remove(ClassNames.NAVBAR_VERTICAL_COLLAPSED_HOVER);
-        }
-      });
-
       if (activeNavLinkItem && !isNavbarVerticalCollapsed) {
         activeNavLinkItem.scrollIntoView({ behavior: 'smooth' });
       }
@@ -5656,10 +5668,15 @@
       "[data-phoenix-toggle='offcanvas']"
     );
     const offcanvasBackdrop = document.querySelector('[data-phoenix-backdrop]');
+    const offcanvasBodyScroll = document.querySelector('[data-phoenix-scroll]');
+    const offcanvasFaq = document.querySelector('.faq');
+    const offcanvasFaqShow = document.querySelector('.faq-sidebar');
 
     const showFilterCol = offcanvasEl => {
       offcanvasEl.classList.add('show');
-      document.body.style.overflow = 'hidden';
+      if (!offcanvasBodyScroll) {
+        document.body.style.overflow = 'hidden';
+      }
     };
     const hideFilterCol = offcanvasEl => {
       offcanvasEl.classList.remove('show');
@@ -5670,16 +5687,17 @@
       toggleEls.forEach(toggleEl => {
         const offcanvasTarget = getData(toggleEl, 'phoenix-target');
         const offcanvasTargetEl = document.querySelector(offcanvasTarget);
-        const closeBtn = offcanvasTargetEl.querySelector(
+        const closeBtn = offcanvasTargetEl.querySelectorAll(
           "[data-phoenix-dismiss='offcanvas']"
         );
-
         toggleEl.addEventListener('click', () => {
           showFilterCol(offcanvasTargetEl);
         });
         if (closeBtn) {
-          closeBtn.addEventListener('click', () => {
-            hideFilterCol(offcanvasTargetEl);
+          closeBtn.forEach(el => {
+            el.addEventListener('click', () => {
+              hideFilterCol(offcanvasTargetEl);
+            });
           });
         }
         if (offcanvasBackdrop) {
@@ -5688,6 +5706,12 @@
           });
         }
       });
+    }
+
+    if (offcanvasFaq) {
+      if (offcanvasFaqShow.classList.contains('show')) {
+        offcanvasFaq.classList.add = 'newFaq';
+      }
     }
   };
 
@@ -6166,59 +6190,35 @@
   };
 
   /* -------------------------------------------------------------------------- */
-  /*                                    Toast                                   */
+  /*                                 SortableJS                                 */
   /* -------------------------------------------------------------------------- */
 
   const sortableInit = () => {
+    const { getData } = window.phoenix.utils;
+
     const sortableEl = document.querySelectorAll('[data-sortable]');
-    const kanbanContainer = document.querySelector('[data-kanban-container]');
-    if (kanbanContainer) {
-      kanbanContainer.addEventListener('click', e => {
-        if (e.target.hasAttribute('data-kanban-collapse')) {
-          e.target.closest('.kanban-column').classList.toggle('collapsed');
-        }
-      });
-    }
+
+    const defaultOptions = {
+      animation: 150,
+      group: {
+        name: 'shared'
+      },
+      delay: 100,
+      delayOnTouchOnly: true, // useful for mobile touch
+      forceFallback: true, // * ignore the HTML5 DnD behaviour
+      onStart() {
+        document.body.classList.add('sortable-dragging'); // to add cursor grabbing
+      },
+      onEnd() {
+        document.body.classList.remove('sortable-dragging');
+      }
+    };
 
     sortableEl.forEach(el => {
-      return window.Sortable.create(el, {
-        animation: 150,
-        group: {
-          name: 'shared'
-        },
-        delay: 100,
-        delayOnTouchOnly: true,
-        forceFallback: true,
-        onStart(e) {
-          window.Sortable.ghost.style.opacity = 1;
-          document.body.classList.add('sortable-dragging');
+      const userOptions = getData(el, 'sortable');
+      const options = window._.merge(defaultOptions, userOptions);
 
-          // close dropdown item when start dragging
-          window.Sortable.ghost
-            .querySelector('.dropdown-menu')
-            .classList.remove('show');
-          const dropdownElement = e.item.querySelector(
-            `[data-bs-toggle='dropdown']`
-          );
-          window.bootstrap.Dropdown.getInstance(dropdownElement)?.hide();
-        },
-        onEnd() {
-          document.body.classList.remove('sortable-dragging');
-        }
-      });
-    });
-  };
-
-  /* -------------------------------------------------------------------------- */
-  /*                                    Toast                                   */
-  /* -------------------------------------------------------------------------- */
-
-  const stopPropagationInit = () => {
-    const stopPropagation = document.querySelectorAll('[data-stop-propagation]');
-    stopPropagation.forEach(btn => {
-      btn.addEventListener('click', e => {
-        e.stopPropagation();
-      });
+      return window.Sortable.create(el, options);
     });
   };
 
@@ -6477,7 +6477,7 @@
             break;
           case 'phoenixNavbarPosition':
             {
-              window.location.replace(window.location.href);
+              handlePageUrl(target.node);
             }
 
             break;
@@ -6525,6 +6525,7 @@
     const tinymces = document.querySelectorAll('[data-tinymce]');
 
     if (window.tinymce) {
+      document.querySelector('.tox-sidebar-wrap');
       tinymces.forEach(tinymceEl => {
         const userOptions = getData(tinymceEl, 'tinymce');
         const options = merge(
@@ -6543,10 +6544,10 @@
           font-size: 12.8px;
         }
         `,
-            mobile: {
-              theme: 'mobile',
-              toolbar: ['undo', 'bold']
-            },
+            // mobile: {
+            //   theme: 'mobile',
+            //   toolbar: ['undo', 'bold']
+            // },
             statusbar: false,
             plugins: 'link,image,lists,table,media',
             theme_advanced_toolbar_align: 'center',
@@ -6563,7 +6564,17 @@
               },
               { name: 'list', items: ['numlist', 'bullist'] },
               { name: 'link', items: ['link'] }
-            ]
+            ],
+            setup: editor => {
+              editor.on('focus', () => {
+                const wraper = document.querySelector('.tox-sidebar-wrap');
+                wraper.classList.add('editor-focused');
+              });
+              editor.on('blur', () => {
+                const wraper = document.querySelector('.tox-sidebar-wrap');
+                wraper.classList.remove('editor-focused');
+              });
+            }
           },
           userOptions
         );
@@ -6805,11 +6816,146 @@
     });
   };
 
+  const faqTabInit = () => {
+    const triggerEls = document.querySelectorAll('[data-vertical-category-tab]');
+    const offcanvasEle = document.querySelector(
+      '[data-vertical-category-offcanvas]'
+    );
+    const filterEles = document.querySelectorAll('[data-category-filter]');
+    const faqSubcategoryTabs = document.querySelectorAll(
+      '.faq-subcategory-tab .nav-item'
+    );
+
+    if (offcanvasEle) {
+      const offcanvas =
+        window.bootstrap.Offcanvas?.getOrCreateInstance(offcanvasEle);
+
+      triggerEls.forEach(el => {
+        el.addEventListener('click', () => {
+          offcanvas.hide();
+        });
+      });
+    }
+
+    if (filterEles) {
+      filterEles.forEach(el => {
+        if (el.classList.contains('active')) {
+          faqSubcategoryTabs.forEach(item => {
+            if (
+              !item.classList.contains(el.getAttribute('data-category-filter')) &&
+              el.getAttribute('data-category-filter') !== 'all'
+            ) {
+              item.classList.add('d-none');
+            }
+          });
+        }
+        el.addEventListener('click', () => {
+          faqSubcategoryTabs.forEach(item => {
+            if (el.getAttribute('data-category-filter') === 'all') {
+              item.classList.remove('d-none');
+            } else if (
+              !item.classList.contains(el.getAttribute('data-category-filter'))
+            ) {
+              item.classList.add('d-none');
+            }
+          });
+        });
+      });
+    }
+  };
+
+  /* -------------------------------------------------------------------------- */
+  /*                                    Kanban                                  */
+  /* -------------------------------------------------------------------------- */
+
+  const kanbanInit = () => {
+    // kanbanContainer to controll collapse behavior in kanban board
+    const kanbanContainer = document.querySelector('[data-kanban-container]');
+    if (kanbanContainer) {
+      kanbanContainer.addEventListener('click', e => {
+        if (e.target.hasAttribute('data-kanban-collapse')) {
+          e.target.closest('.kanban-column').classList.toggle('collapsed');
+        }
+      });
+
+      const kanbanGroups = kanbanContainer.querySelectorAll('[data-sortable]');
+      kanbanGroups.forEach(item => {
+        const itemInstance = window.Sortable.get(item);
+        itemInstance.option('onStart', e => {
+          document.body.classList.add('sortable-dragging');
+          window.Sortable.ghost
+            .querySelector('.dropdown-menu')
+            .classList.remove('show');
+          const dropdownElement = e.item.querySelector(
+            `[data-bs-toggle='dropdown']`
+          );
+          window.bootstrap.Dropdown.getInstance(dropdownElement)?.hide();
+        });
+
+        // return itemInstance;
+      });
+    }
+  };
+
+  const towFAVerificarionInit = () => {
+    const verificationForm = document.querySelector('[data-2FA-varification]');
+    const inputFields = document.querySelectorAll(
+      '[data-2FA-varification] input[type=number]'
+    );
+
+    if (verificationForm) {
+      window.addEventListener('load', () => inputFields[0].focus());
+      // check if the value is not a number
+      verificationForm.addEventListener('keypress', e => {
+        if (e.target.matches('input[type=number]')) {
+          if (/\D/.test(e.key) || !!e.target.value) {
+            e.preventDefault();
+          }
+        }
+      });
+
+      // after entering a value get focus on the next input field and remove the disabled attribute
+      const inputs = [...inputFields];
+      verificationForm.addEventListener('input', e => {
+        if (e.target.matches('input[type=number]')) {
+          const index = inputs.indexOf(e.target);
+          const nextInput = inputs[index + 1];
+          if (
+            nextInput &&
+            e.target.value !== '' &&
+            nextInput.hasAttribute('disabled')
+          ) {
+            nextInput.removeAttribute('disabled');
+            nextInput.focus();
+          }
+        }
+      });
+
+      // backspace functionality
+      verificationForm.addEventListener('keydown', e => {
+        if (e.target.matches('input[type=number]') && e.keyCode === 8) {
+          const index = inputs.indexOf(e.target);
+          const prevInput = inputs[index - 1];
+          if (prevInput) {
+            prevInput.focus();
+            e.target.value = '';
+            e.target.setAttribute('disabled', true);
+          }
+        }
+      });
+
+      // return merged code
+      verificationForm.addEventListener('submit', () => {
+        const code = inputs.map(input => input.value).join('');
+        return code;
+      });
+    }
+  };
+
   /* eslint-disable no-new */
 
   window.initMap = initMap;
   docReady(detectorInit);
-  docReady(stopPropagationInit);
   docReady(simplebarInit);
   docReady(toastInit);
   docReady(tooltipInit);
@@ -6858,8 +7004,11 @@
 
   docReady(copyLink);
   docReady(randomColorInit);
+  docReady(faqTabInit);
   docReady(createBoardInit);
   docReady(advanceAjaxTableInit);
+  docReady(kanbanInit);
+  docReady(towFAVerificarionInit);
 
   docReady(() => {
     const selectedRowsBtn = document.querySelector('[data-selected-rows]');
