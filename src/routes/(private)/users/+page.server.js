@@ -8,7 +8,6 @@ export const load = async ({ params, cookies }) => {
   const sessionId = cookies.get('connect.sid');
   // const cookieValue = sessionId.split(';')[0];
 
-  debugger
   const users = await axios.get(`${PUBLIC_API_URL}users`, {
     headers: {
       cookie: sessionId
@@ -19,7 +18,6 @@ export const load = async ({ params, cookies }) => {
     withCredentials: true,
   })
   console.log(users)
-  debugger
   return { data: users.data }
 
 }
