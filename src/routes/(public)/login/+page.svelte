@@ -1,5 +1,23 @@
 <script>
+	import { enhance } from '$app/forms';
+	import { browser } from '$app/environment';
+	import { onMount } from 'svelte';
 	export let form;
+
+	// const logOff = async () => {
+	// 	// remove connect.sid cookie
+	// 	try {
+	// 		await fetch('/login/logout', {
+	// 			method: 'get'
+	// 		});
+	// 	} catch (e) {
+	// 		console.log(e);
+	// 	}
+	// };
+
+	// onMount(() => {
+	// 	logOff();
+	// });
 </script>
 
 <div class="container">
@@ -14,7 +32,12 @@
 				<h3 class="text-1000">Sign In</h3>
 				<p class="text-700">Get access to your account</p>
 			</div>
-			<form method="post">
+			{#if form?.status}
+				<div class="alert {form.status === 200 ? 'alert-success' : 'alert-danger'}" role="alert">
+					{form.status}: {form.message}
+				</div>
+			{/if}
+			<form method="post" action="?/login" use:enhance>
 				<div class="mb-3 text-start">
 					<label class="form-label" for="email">Email address</label>
 					<div class="form-icon-container">
@@ -23,6 +46,8 @@
 							id="email"
 							type="email"
 							placeholder="name@example.com"
+							name="username"
+							value={form?.username || null}
 						/><span class="fas fa-user text-900 fs--1 form-icon" />
 					</div>
 				</div>
@@ -34,6 +59,8 @@
 							id="password"
 							type="password"
 							placeholder="Password"
+							name="password"
+							value={form?.password || null}
 						/><span class="fas fa-key text-900 fs--1 form-icon" />
 					</div>
 				</div>
