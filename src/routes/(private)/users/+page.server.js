@@ -18,6 +18,7 @@ export const load = async ({ params, cookies }) => {
     withCredentials: true,
   })
   console.log(users)
-  return { data: users.data }
+  const pageData = { data: users.data }
+  return pageData;
 
 }
