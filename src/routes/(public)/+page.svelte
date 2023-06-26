@@ -15,6 +15,6 @@
 
 <style lang="scss">
 	.test-variable-auto-loading {
-		background-color: $red;
+		// background-color: $red;
 	}
 </style>
